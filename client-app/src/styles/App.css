@@ -1,0 +1,18 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Splash {
+  position: relative;
+  height: 100vh;
+  width: auto;
+  
+}
+
+.splash-canvas {
+  position: absolute;
+}

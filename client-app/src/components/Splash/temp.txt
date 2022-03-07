@@ -1,0 +1,63 @@
+<Box
+      className="Splash"
+      component="div"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "relative",
+        height: "100vh",
+        width: "auto",
+      }}
+    >
+      <Canvas draw={draw} height={height} width={width} />
+      <Box
+        component="div"
+        sx={{
+          display: "flex",
+        }}
+      >
+        <Typography
+          className="splash-text"
+          variant="h4"
+          align="center"
+          color="white"
+          marginRight={1}
+          noWrap={true}
+        >
+          Hello, I'm  
+        </Typography>
+        <Typography
+          className="splash-text"
+          variant="h4"
+          align="center"
+          noWrap={true}
+          color="LimeGreen"
+        >
+          Ryan Cathcart
+        </Typography>
+        <Typography
+          className="splash-text"
+          variant="h4"
+          align="center"
+          color="white"
+          noWrap={true}
+        >
+          , 
+        </Typography>
+      </Box>
+      <Typography
+        className="splash-text"
+        variant="h4"
+        align="center"
+        noWrap={true}
+        paragraph={true}
+        color="white"
+      >
+        an aspiring full-stack web developer.
+      </Typography>
+    </Box>
+
+
+background-color: #252934;
