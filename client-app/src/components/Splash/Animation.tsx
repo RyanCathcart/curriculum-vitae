@@ -5,33 +5,125 @@ const Animation = () => {
   const { context } = useCanvasContext();
   const { width, height } = useResponsiveSize();
 
-  let y = height / 2;
-  let length = 0.01;
-  let amplitude = 100;
-  let frequency = 0.01;
+  let particles: Particle[];
 
-  let increment = frequency;
-  
+  const options = {
+    particleColor: "rgba(255, 255, 255, 1)",
+    lineColor: "rgba(56, 176, 0)",
+    particleAmount: 20,
+    defaultRadius: 2,
+    variantRadius: 2,
+    defaultSpeed: 1,
+    variantSpeed: 1,
+    linkRadius: 400,
+  };
+
+  const init = () => {
+    initializeElements();
+    render();
+  };
+
+  const initializeElements = () => {
+    particles = [];
+    for (let i = 0; i < options.particleAmount; i++) {
+      particles.push(new Particle());
+    }
+  };
+
+  class Particle {
+    x: number;
+    y: number;
+    color: string;
+    radius: number;
+    speed: number;
+    directionAngle: number;
+    vector: any;
+
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.color = options.particleColor;
+      this.radius = options.defaultRadius + Math.random() * options.variantRadius;
+      this.speed = options.defaultSpeed + Math.random() * options.variantSpeed;
+      this.directionAngle = Math.floor(Math.random() * 360);
+      this.vector = {
+        x: Math.cos(this.directionAngle) * this.speed,
+        y: Math.sin(this.directionAngle) * this.speed,
+      };
+    }
+
+    update() {
+      this.border();
+      this.x += this.vector.x;
+      this.y += this.vector.y;
+    }
+
+    border() {
+      if (this.x <= 0 || this.x >= width) this.vector.x *= -1;
+      if (this.y <= 0 || this.y >= height) this.vector.y *= -1;
+      if (this.x < 0) this.x = 0;
+      if (this.x > width) this.x = width;
+      if (this.y < 0) this.y = 0;
+      if (this.y > height) this.y = height;
+    }
+
+    draw() {
+      if (!context) return;
+
+      context.beginPath();
+      context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      context.closePath();
+      context.fillStyle = this.color;
+      context.fill();
+    }
+  }
+
+  const drawParticles = () => {
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
+    }
+  };
+
+  const drawLines = () => {
+    for (let i = 0; i < particles.length; i++) {
+      linkPoints(particles[i], particles);
+    }
+  };
+
+  const linkPoints = (point: Particle, hubs: Particle[]) => {
+    for (let i = 0; i < hubs.length; i++) {
+      let distance = checkDistance(point.x, point.y, hubs[i].x, hubs[i].y);
+      let opacity = 1 - distance / options.linkRadius;
+      if (opacity > 0) {
+        if (!context) return;
+        context.lineWidth = 0.5;
+        context.strokeStyle = `rgba(56, 176, 0, ${opacity})`
+        context.beginPath();
+        context.moveTo(point.x, point.y);
+        context.lineTo(hubs[i].x, hubs[i].y);
+        context.closePath();
+        context.stroke();
+      }
+    }
+  };
+
+  const checkDistance = (x1: number, y1: number, x2: number, y2: number) => {
+    return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+  };
+
   const render = () => {
     if (!context) return;
 
+    // Fill background
     context.fillStyle = "#252934";
-    context.fillRect(0, 0, width, height)
+    context.fillRect(0, 0, width, height);
 
-    context.beginPath();
-    context.moveTo(0, height / 2);
-
-    for (let i = 0; i < width; i++) {
-      context.lineTo(i, y + Math.sin(i * length + increment) * amplitude * Math.sin(increment));
-    }
-    context.strokeStyle = "hsl(100, 50%, 50%)";
-    context.stroke();
-
-    increment += frequency;
-
+    drawLines();
+    drawParticles();
     requestAnimationFrame(render);
   };
-  render();
+  init();
   return null;
 };
 

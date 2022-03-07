@@ -11,7 +11,7 @@ export default function Navbar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                sx={{ color: "white", display: "block" }}
+                sx={{ color: "black", display: "block" }}
               >
                 {page}
               </Button>
