@@ -14,9 +14,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .splash-canvas {
   z-index: -1;
   position: absolute;
+  top: 0;
 }
