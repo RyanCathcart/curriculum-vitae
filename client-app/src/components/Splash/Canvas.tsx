@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
-import Particle, { options } from "./particle";
+import Particle from "./particle";
 
 export default function Canvas() {
   // Do once:
@@ -13,18 +13,7 @@ export default function Canvas() {
   // 2. Create particles
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-  let particles = useRef<Particle[]>();
-  // const [particles, setParticles] = useState<Particle[]>([]);
-
-  // Sets the HTML canvas element's size to the browser's viewport size
-  const setCanvasSize = useCallback(() => {
-    const context = canvasRef.current?.getContext("2d");
-    if (!context) return;
-
-    context.canvas.width = document.body.clientWidth;
-    context.canvas.height = window.innerHeight;
-  }, []);
+  const particles = useRef<Particle[]>();
 
   const drawParticles = () => {
     if (!particles.current) return;
@@ -38,24 +27,27 @@ export default function Canvas() {
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
   };
 
-  const linkPoints = useCallback((point: Particle, hubs: Particle[]) => {
-    const context = canvasRef.current?.getContext("2d");
-    
-    for (let i = 0; i < hubs.length; i++) {
-      let distance = checkDistance(point.x, point.y, hubs[i].x, hubs[i].y);
-      let opacity = 1 - distance / options.linkRadius;
-      if (opacity > 0) {
-        if (!context) return;
-        context.lineWidth = 0.5;
-        context.strokeStyle = `rgba(56, 176, 0, ${opacity})`
-        context.beginPath();
-        context.moveTo(point.x, point.y);
-        context.lineTo(hubs[i].x, hubs[i].y);
-        context.closePath();
-        context.stroke();
+  const linkPoints = useCallback(
+    (point: Particle, hubs: Particle[]) => {
+      const context = canvasRef.current?.getContext("2d");
+
+      for (let i = 0; i < hubs.length; i++) {
+        let distance = checkDistance(point.x, point.y, hubs[i].x, hubs[i].y);
+        let opacity = 1 - distance / 400;
+        if (opacity > 0) {
+          if (!context) return;
+          context.lineWidth = 0.5;
+          context.strokeStyle = `rgba(56, 176, 0, ${opacity})`;
+          context.beginPath();
+          context.moveTo(point.x, point.y);
+          context.lineTo(hubs[i].x, hubs[i].y);
+          context.closePath();
+          context.stroke();
+        }
       }
-    }
-  }, []);
+    },
+    []
+  );
 
   const drawLines = useCallback(() => {
     if (!particles.current) return;
@@ -69,9 +61,9 @@ export default function Canvas() {
     const context = canvasRef.current?.getContext("2d");
     if (!context) return;
 
-    context.fillStyle = "#252934";
+    context.fillStyle = "rgba(37, 41, 52, 1)";
     context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-    
+
     drawLines();
     drawParticles();
 
@@ -81,26 +73,34 @@ export default function Canvas() {
   // Initialize canvas data
   const init = useCallback(() => {
     const context = canvasRef.current?.getContext("2d");
-
     particles.current = [];
-
     if (!context) return;
-    for (let i = 0; i < 20; i++) {
+
+    for (let i = 0; i < 30; i++) {
       particles.current.push(new Particle(context));
     }
   }, [particles]);
 
-  // Executes when the Canvas component mounts
-  useEffect(() => {
-    setCanvasSize();
+  // Sets the HTML canvas element's size to the browser's viewport size
+  const handleResize = useCallback(() => {
+    const context = canvasRef.current?.getContext("2d");
+
+    if (!context) return;
+    context.canvas.width = document.body.clientWidth;
+    context.canvas.height = window.innerHeight;
     init();
+  }, [init]);
+
+  // Executes when the Canvas component mounts
+  // The return executes when the Canvas component unmounts
+  useEffect(() => {
+    handleResize();
     render();
 
-    window.addEventListener("resize", () => {
-      setCanvasSize();
-      init();
-    });
-  }, [init, setCanvasSize, render]);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [handleResize, render]);
 
   return <canvas className="splash-canvas" ref={canvasRef}></canvas>;
 }

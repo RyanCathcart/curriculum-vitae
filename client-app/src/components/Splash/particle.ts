@@ -6,7 +6,6 @@ export const options = {
   variantRadius: 2,
   defaultSpeed: 1,
   variantSpeed: 1,
-  linkRadius: 400,
 };
 
 export default class Particle {
@@ -38,7 +37,6 @@ export default class Particle {
   }
 
   update() {
-    // console.log("x: ", this.x, "y: ", this.y, "vX: ", this.vector.x, "vY: ", this.vector.y)
     this.border();
     this.x += this.vector.x;
     this.y += this.vector.y;

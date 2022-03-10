@@ -7,9 +7,10 @@ import Navbar from "./components/Navbar";
 
 export default function App() {
   const theme = customTheme;
+
   return (
     <div className="App">
-      <ThemeProvider theme = {theme}>
+      <ThemeProvider theme={theme}>
         <Splash />
         <Navbar />
         <About />

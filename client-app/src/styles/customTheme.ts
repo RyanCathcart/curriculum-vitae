@@ -17,10 +17,10 @@ declare module '@mui/material/styles' {
 export const customTheme = createTheme({
   palette: {
     primary: {
-      main: "rgba(56, 176, 0)",
-      dark: "#003459",
-      light: "#00A8E8",
-      contrastText:"#252934"
+      main: "hsl(120, 100%, 27%)",
+      dark: "hsl(120, 100%, 20%)",
+      light: "hsl(120, 100%, 40%)",
+      contrastText:"#FFFFFF"
     },
   },
   customPalette: {

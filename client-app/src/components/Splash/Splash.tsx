@@ -1,57 +1,52 @@
-import { Box, Button, Typography } from "@mui/material";
 import "../../styles/App.css";
+import { Box, Button, Typography } from "@mui/material";
 import Canvas from "./Canvas";
+import { useEffect, useState } from "react";
+import { Link } from "react-scroll";
 
 export default function Splash() {
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <div className="Splash">
+    <Box className="Splash Home" component="div" sx={{ display: "flex" }} height={dimensions.height}>
       <Canvas />
-      <Box
-        component="div"
-        sx={{
-          display: "flex",
-        }}
-      >
-        <Typography
-          className="splash-text"
-          variant="h4"
-          align="center"
-          color="white"
-          marginRight={1}
-          noWrap={true}
-        >
-          Hello, I'm  
+      <Box component="div" sx={{ display: "flex" }}>
+        <Typography variant="h4" color="white" marginRight={1} noWrap={true}>
+          Hello, I'm
         </Typography>
-        <Typography
-          className="splash-text"
-          variant="h4"
-          align="center"
-          noWrap={true}
-          color="LimeGreen"
-        >
+        <Typography variant="h4" color="LimeGreen" noWrap={true}>
           Ryan Cathcart
         </Typography>
-        <Typography
-          className="splash-text"
-          variant="h4"
-          align="center"
-          color="white"
-          noWrap={true}
-        >
+        <Typography variant="h4" color="white" noWrap={true}>
           ,
         </Typography>
       </Box>
-      <Typography
-        className="splash-text"
-        variant="h4"
-        align="center"
-        noWrap={true}
-        paragraph={true}
-        color="white"
-      >
+      <Typography variant="h4" color="white" noWrap={true} gutterBottom={true}>
         a full-stack web developer.
       </Typography>
-      <Button size="large" variant="outlined" color="primary">View my work</Button>
-    </div>
+      <Link to="About" smooth={true} offset={-64}>
+        <Button size="large" variant="contained" color="inherit">
+          View my work
+        </Button>
+      </Link>
+    </Box>
   );
 }

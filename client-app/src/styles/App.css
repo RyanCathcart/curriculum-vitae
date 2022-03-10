@@ -1,14 +1,13 @@
 *,
 *::before,
 *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 .Splash {
   position: relative;
-  height: 100vh;
   width: auto;
   display: flex;
   flex-direction: column;
@@ -18,7 +17,11 @@
 }
 
 .splash-canvas {
-  z-index: -1;
   position: absolute;
   top: 0;
+  z-index: -1;
+}
+
+.About {
+  padding-top: 1rem;
 }
