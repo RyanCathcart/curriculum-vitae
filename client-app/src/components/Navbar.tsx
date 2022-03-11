@@ -51,8 +51,8 @@ export default function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <Link to={page} smooth={true} offset={-64}>
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <Link key={page} to={page} smooth={true} offset={-64}>
+                  <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
                 </Link>
@@ -61,12 +61,8 @@ export default function Navbar() {
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" }, justifyContent: "center" }}>
             {pages.map((page) => (
-              <Link to={page} smooth={true} offset={-64}>
-                <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{ mx: 2, my: 0, px: 3, color: "white", display: "block" }}
-                >
+              <Link key={page} to={page} smooth={true} offset={-64}>
+                <Button onClick={handleCloseNavMenu} sx={{ mx: 2, my: 0, px: 3, color: "white", display: "block" }}>
                   {page}
                 </Button>
               </Link>
