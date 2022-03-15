@@ -1,7 +1,18 @@
-import { AppBar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  Divider,
+  IconButton,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-scroll";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
 export default function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -19,7 +30,7 @@ export default function Navbar() {
   return (
     <AppBar className="Navbar" position="sticky" color="primary">
       <Container maxWidth="lg">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters variant="dense">
           <Box sx={{ flexGrow: 1, display: { xs: "flex", sm: "none" }, flexDirection: "row-reverse" }}>
             <IconButton
               size="large"
@@ -28,7 +39,6 @@ export default function Navbar() {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
-              sx={{ my: 1 }}
             >
               <MenuIcon />
             </IconButton>
@@ -51,7 +61,7 @@ export default function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <Link key={page} to={page} smooth={true} offset={-64}>
+                <Link key={page} to={page} smooth={true} offset={-48}>
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
@@ -59,13 +69,20 @@ export default function Navbar() {
               ))}
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" }, justifyContent: "center" }}>
+          <Box sx={{ justifyContent: "space-around", flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
+            <Divider orientation="vertical" flexItem />
             {pages.map((page) => (
-              <Link key={page} to={page} smooth={true} offset={-64}>
-                <Button onClick={handleCloseNavMenu} sx={{ mx: 2, my: 0, px: 3, color: "white", display: "block" }}>
-                  {page}
-                </Button>
-              </Link>
+              <Fragment key={page}>
+                <Link to={page} smooth={true} offset={-48}>
+                  <Button
+                    onClick={handleCloseNavMenu}
+                    sx={{ justifyContent: "stretch", flexGrow: 1, color: "white", display: "block" }}
+                  >
+                    {page}
+                  </Button>
+                </Link>
+                <Divider orientation="vertical" flexItem />
+              </Fragment>
             ))}
           </Box>
         </Toolbar>

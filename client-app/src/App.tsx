@@ -1,6 +1,6 @@
 import "./styles/App.css";
 import Splash from "./components/Splash/Splash";
-import About from "./components/About";
+import About from "./components/About/About";
 import { ThemeProvider } from "@mui/material";
 import { customTheme } from "./styles/customTheme";
 import Navbar from "./components/Navbar";

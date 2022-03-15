@@ -1,10 +1,14 @@
 import "../../styles/App.css";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, createTheme, responsiveFontSizes, ThemeProvider, Typography } from "@mui/material";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import Canvas from "./Canvas";
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 
 export default function Splash() {
+  let theme = createTheme();
+  theme = responsiveFontSizes(theme);
+
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
@@ -28,23 +32,17 @@ export default function Splash() {
   return (
     <Box className="Splash Home" component="div" sx={{ display: "flex" }} height={dimensions.height}>
       <Canvas />
-      <Box component="div" sx={{ display: "flex" }}>
-        <Typography variant="h4" color="white" marginRight={1} noWrap={true}>
-          Hello, I'm
+      <ThemeProvider theme={theme}>
+        <Typography variant="h4" align="center" color="white" noWrap={true} gutterBottom>
+          <span>Hello, I'm&nbsp;</span>
+          <span className="highlighted-text">Ryan Cathcart</span>
+          <span>,<br />a full-stack web developer.</span>
         </Typography>
-        <Typography variant="h4" color="LimeGreen" noWrap={true}>
-          Ryan Cathcart
-        </Typography>
-        <Typography variant="h4" color="white" noWrap={true}>
-          ,
-        </Typography>
-      </Box>
-      <Typography variant="h4" color="white" noWrap={true} gutterBottom={true}>
-        a full-stack web developer.
-      </Typography>
-      <Link to="About" smooth={true} offset={-64}>
+      </ThemeProvider>
+      <Link to="About" smooth={true} offset={-48}>
         <Button size="large" variant="contained" color="inherit">
-          View my work
+          View my work&nbsp;
+          <ArrowForwardRoundedIcon fontSize="small" />
         </Button>
       </Link>
     </Box>
