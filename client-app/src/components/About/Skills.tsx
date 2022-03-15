@@ -1,5 +1,5 @@
 import "../../styles/App.css";
-import { AppBar, Card, CardContent, Grid, Tab, Tabs, Typography } from "@mui/material";
+import { AppBar, Card, CardContent, Divider, Grid, Tab, Tabs } from "@mui/material";
 import { SyntheticEvent, useState } from "react";
 import TabPanel from "./TabPanel";
 import SkillCard from "./SkillCard";
@@ -27,7 +27,7 @@ const cards = [
   { id: 10, image: pythonIcon, text: "Python" },
 ];
 
-export default function About() {
+export default function Skills() {
   const [value, setValue] = useState(0);
   const handleChange = (event: SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -35,26 +35,21 @@ export default function About() {
 
   return (
     <Card variant="outlined">
-      <CardContent>
-        <Typography variant="h4" align="center" gutterBottom>
-          Skills
-        </Typography>
-        <AppBar position="static">
-          <Tabs value={value} onChange={handleChange} variant="fullWidth" indicatorColor="primary" textColor="inherit">
-            <Tab label="Skills" />
-            <Tab label="Hobbies" />
-          </Tabs>
-        </AppBar>
-        <TabPanel value={value} index={0}>
-          <Grid container spacing={3}>
-            {cards.map((card) => (
-              <SkillCard key={card.id} image={card.image} text={card.text} />
-            ))}
-          </Grid>
-          
-        </TabPanel>
-        <TabPanel value={value} index={1}></TabPanel>
-      </CardContent>
+      <AppBar position="static" elevation={0}>
+        <Tabs value={value} onChange={handleChange} variant="fullWidth" indicatorColor="primary" textColor="inherit">
+          <Tab label="Skills" />
+          {/* <Divider orientation="vertical" flexItem />
+          <Tab label="Hobbies" /> */}
+        </Tabs>
+      </AppBar>
+      <TabPanel value={value} index={0}>
+        <Grid container spacing={3}>
+          {cards.map((card) => (
+            <SkillCard key={card.id} image={card.image} text={card.text} />
+          ))}
+        </Grid>
+      </TabPanel>
+      <TabPanel value={value} index={1}></TabPanel>
     </Card>
   );
 }

@@ -9,7 +9,7 @@ export default function About() {
       <Typography variant="h2" align="center" sx={{ paddingBottom: 8 }}>
       <Box sx={{ fontWeight: 'bold' }}>ABOUT</Box>
       </Typography>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} alignItems="stretch">
         <Grid item xs={12} sm={4}>
           <Bio />
         </Grid>
