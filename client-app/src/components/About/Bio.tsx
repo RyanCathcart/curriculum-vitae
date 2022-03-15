@@ -1,17 +1,33 @@
 import "../../styles/App.css";
 import portrait from "../../assets/portrait.jpg";
-import { Box, CardContent, CardMedia, Typography } from "@mui/material";
+import { Box, CardContent, Typography } from "@mui/material";
 
 export default function About() {
   return (
-    <Box component="div" sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100%" }}>
+    <Box
+      component="div"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 2,
+        height: "100%",
+      }}
+    >
       <CardContent>
-        <CardMedia
-          component="img"
-          image={portrait}
-          alt="portrait"
-          sx={{ p: { xs: 8, sm: 0, md: 4 }, borderRadius: "50%" }}
-        />
+        <Box component="div" sx={{ px: { xs: 8, sm: 0, md: 4 }, paddingBottom: 4 }}>
+          <img
+            src={portrait}
+            alt="portrait"
+            style={{
+              width: "100%",
+              border: "3px solid hsl(0, 0%, 100%)",
+              borderRadius: "50%",
+              boxShadow: "0px 0px 10px #555",
+            }}
+          />
+        </Box>
         <Typography variant="h4" align="center" gutterBottom>
           Bio
         </Typography>

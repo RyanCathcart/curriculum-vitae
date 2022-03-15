@@ -1,5 +1,5 @@
 import "../../styles/App.css";
-import { AppBar, Card, CardContent, Divider, Grid, Tab, Tabs } from "@mui/material";
+import { AppBar, Box, Grid, Tab, Tabs } from "@mui/material";
 import { SyntheticEvent, useState } from "react";
 import TabPanel from "./TabPanel";
 import SkillCard from "./SkillCard";
@@ -34,7 +34,7 @@ export default function Skills() {
   };
 
   return (
-    <Card variant="outlined">
+    <Box>
       <AppBar position="static" elevation={0}>
         <Tabs value={value} onChange={handleChange} variant="fullWidth" indicatorColor="primary" textColor="inherit">
           <Tab label="Skills" />
@@ -50,6 +50,6 @@ export default function Skills() {
         </Grid>
       </TabPanel>
       <TabPanel value={value} index={1}></TabPanel>
-    </Card>
+    </Box>
   );
 }
