@@ -1,10 +1,8 @@
 export const options = {
   particleColor: "rgba(255, 255, 255, 1)",
-  lineColor: "rgba(56, 176, 0)",
-  particleAmount: 20,
   defaultRadius: 2,
   variantRadius: 2,
-  defaultSpeed: 1,
+  defaultSpeed: 0.2,
   variantSpeed: 1,
 };
 

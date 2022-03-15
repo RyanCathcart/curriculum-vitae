@@ -16,7 +16,7 @@ export default function About() {
       }}
     >
       <CardContent>
-        <Box component="div" sx={{ px: { xs: 8, sm: 0, md: 4 }, paddingBottom: 4 }}>
+        <Box component="div" sx={{ px: { xs: 3, sm: 0, md: 2 }, paddingBottom: 4 }}>
           <img
             src={portrait}
             alt="portrait"
@@ -24,7 +24,7 @@ export default function About() {
               width: "100%",
               border: "3px solid hsl(0, 0%, 100%)",
               borderRadius: "50%",
-              boxShadow: "0px 0px 10px #555",
+              boxShadow: "0px 1px 10px #555",
             }}
           />
         </Box>

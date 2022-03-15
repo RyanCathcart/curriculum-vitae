@@ -37,7 +37,7 @@ export default function Canvas() {
         if (opacity > 0) {
           if (!context) return;
           context.lineWidth = 0.5;
-          context.strokeStyle = `rgba(56, 176, 0, ${opacity})`;
+          context.strokeStyle = `rgba(0, 180, 216, ${opacity})`;
           context.beginPath();
           context.moveTo(point.x, point.y);
           context.lineTo(hubs[i].x, hubs[i].y);
