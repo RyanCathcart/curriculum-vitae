@@ -14,6 +14,9 @@ export default function Canvas() {
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const particles = useRef<Particle[]>();
+  const linkRadius = useRef<number>(400);
+
+  const numParticles: number = 30;
 
   const drawParticles = () => {
     if (!particles.current) return;
@@ -28,10 +31,10 @@ export default function Canvas() {
   useEffect(() => {
     const linkPoints = (point: Particle, hubs: Particle[]) => {
       const context = canvasRef.current?.getContext("2d");
-  
+
       for (let i = 0; i < hubs.length; i++) {
         let distance = Math.sqrt(Math.pow(hubs[i].x - point.x, 2) + Math.pow(hubs[i].y - point.y, 2));
-        let opacity = 1 - distance / 400;
+        let opacity = 1 - distance / linkRadius.current;
         if (opacity > 0) {
           if (!context) return;
           context.lineWidth = 0.5;
@@ -67,12 +70,14 @@ export default function Canvas() {
     };
 
     // Initialize canvas data
+    // Sets the link radius (the threshold at which the lines between particles becomes visible)
     const init = () => {
       const context = canvasRef.current?.getContext("2d");
-      particles.current = [];
       if (!context) return;
+      linkRadius.current = Math.floor((context.canvas.width + context.canvas.height) * 0.14);
 
-      for (let i = 0; i < 30; i++) {
+      particles.current = [];
+      for (let i = 0; i < numParticles; i++) {
         particles.current.push(new Particle(context));
       }
     };
