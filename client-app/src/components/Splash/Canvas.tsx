@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Particle from "./particle";
 
 export default function Canvas() {
@@ -23,16 +23,14 @@ export default function Canvas() {
     }
   };
 
-  const checkDistance = (x1: number, y1: number, x2: number, y2: number) => {
-    return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-  };
-
-  const linkPoints = useCallback(
-    (point: Particle, hubs: Particle[]) => {
+  // Executes when the Canvas component mounts
+  // The return executes when the Canvas component unmounts
+  useEffect(() => {
+    const linkPoints = (point: Particle, hubs: Particle[]) => {
       const context = canvasRef.current?.getContext("2d");
-
+  
       for (let i = 0; i < hubs.length; i++) {
-        let distance = checkDistance(point.x, point.y, hubs[i].x, hubs[i].y);
+        let distance = Math.sqrt(Math.pow(hubs[i].x - point.x, 2) + Math.pow(hubs[i].y - point.y, 2));
         let opacity = 1 - distance / 400;
         if (opacity > 0) {
           if (!context) return;
@@ -45,62 +43,57 @@ export default function Canvas() {
           context.stroke();
         }
       }
-    },
-    []
-  );
+    };
 
-  const drawLines = useCallback(() => {
-    if (!particles.current) return;
-    for (let i = 0; i < particles.current.length; i++) {
-      linkPoints(particles.current[i], particles.current);
-    }
-  }, [linkPoints]);
+    const drawLines = () => {
+      if (!particles.current) return;
+      for (let i = 0; i < particles.current.length; i++) {
+        linkPoints(particles.current[i], particles.current);
+      }
+    };
 
-  // Render loop
-  const render = useCallback(() => {
-    const context = canvasRef.current?.getContext("2d");
-    if (!context) return;
+    // Render loop
+    const render = () => {
+      const context = canvasRef.current?.getContext("2d");
+      if (!context) return;
 
-    context.fillStyle = "rgba(37, 41, 52, 1)";
-    context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+      context.fillStyle = "rgba(37, 41, 52, 1)";
+      context.fillRect(0, 0, context.canvas.width, context.canvas.height);
 
-    drawLines();
-    drawParticles();
+      drawLines();
+      drawParticles();
 
-    requestAnimationFrame(render);
-  }, [drawLines]);
+      requestAnimationFrame(render);
+    };
 
-  // Initialize canvas data
-  const init = useCallback(() => {
-    const context = canvasRef.current?.getContext("2d");
-    particles.current = [];
-    if (!context) return;
+    // Initialize canvas data
+    const init = () => {
+      const context = canvasRef.current?.getContext("2d");
+      particles.current = [];
+      if (!context) return;
 
-    for (let i = 0; i < 30; i++) {
-      particles.current.push(new Particle(context));
-    }
-  }, [particles]);
+      for (let i = 0; i < 30; i++) {
+        particles.current.push(new Particle(context));
+      }
+    };
 
-  // Sets the HTML canvas element's size to the browser's viewport size
-  const handleResize = useCallback(() => {
-    const context = canvasRef.current?.getContext("2d");
+    // Sets the HTML canvas element's size to the browser's viewport size
+    const handleResize = () => {
+      const context = canvasRef.current?.getContext("2d");
 
-    if (!context) return;
-    context.canvas.width = document.body.clientWidth;
-    context.canvas.height = window.innerHeight;
-    init();
-  }, [init]);
+      if (!context) return;
+      context.canvas.width = document.body.clientWidth;
+      context.canvas.height = window.innerHeight;
+      init();
+    };
 
-  // Executes when the Canvas component mounts
-  // The return executes when the Canvas component unmounts
-  useEffect(() => {
     handleResize();
     render();
 
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
-  }, [handleResize, render]);
+  }, []);
 
   return <canvas className="splash-canvas" ref={canvasRef}></canvas>;
 }
