@@ -13,6 +13,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-scroll";
 import { useState } from "react";
+import { customTheme } from "../styles/customTheme";
 
 export default function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -85,6 +86,7 @@ export default function Navbar() {
           </Box>
         </Toolbar>
       </Container>
+      <Box sx={{height: "2px", backgroundColor: `${customTheme.palette.secondary.main}`}} />
     </AppBar>
   );
 }

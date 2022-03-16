@@ -43,7 +43,7 @@ export default function Skills() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Grid container spacing={3}>
+        <Grid container spacing={{ xs: 2, sm: 3 }}>
           {cards.map((card) => (
             <SkillCard key={card.id} image={card.image} text={card.text} />
           ))}

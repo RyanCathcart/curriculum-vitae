@@ -16,7 +16,7 @@ export default function SkillCard(props: SkillCardProps) {
       <Card sx={{ borderRadius: "5%" }}>
         <CardMedia component="img" src={image} alt="c-sharp" sx={{ padding: 1 }} />
         <ThemeProvider theme={theme}>
-          <Typography variant="h6" align="center">
+          <Typography variant="subtitle2" align="center">
             {text}
           </Typography>
         </ThemeProvider>
