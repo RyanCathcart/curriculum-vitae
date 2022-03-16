@@ -13,7 +13,7 @@ export default function SkillCard(props: SkillCardProps) {
 
   return (
     <Grid item xs={4} sm={4} md={3}>
-      <Card sx={{ borderRadius: "5%" }}>
+      <Card sx={{ borderRadius: "5%", height: "100%" }}>
         <CardMedia component="img" src={image} alt="c-sharp" sx={{ padding: 1 }} />
         <ThemeProvider theme={theme}>
           <Typography variant="subtitle2" align="center">

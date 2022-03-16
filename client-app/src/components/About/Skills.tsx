@@ -16,7 +16,7 @@ import pythonIcon from "../../assets/skills/python.png";
 
 const cards = [
   { id: 1, image: cSharpIcon, text: "C#" },
-  { id: 2, image: dotNetIcon, text: "ASP.NET" },
+  { id: 2, image: dotNetIcon, text: "ASP.NET Core" },
   { id: 3, image: jsIcon, text: "JavaScript" },
   { id: 4, image: tsIcon, text: "TypeScript" },
   { id: 5, image: reactIcon, text: "React" },
@@ -43,7 +43,7 @@ export default function Skills() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Grid container spacing={{ xs: 2, sm: 3 }}>
+        <Grid container alignItems="stretch" spacing={{ xs: 2, md: 3 }}>
           {cards.map((card) => (
             <SkillCard key={card.id} image={card.image} text={card.text} />
           ))}

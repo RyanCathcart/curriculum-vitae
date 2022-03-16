@@ -32,6 +32,7 @@ export default function Navbar() {
     <AppBar className="Navbar" position="sticky" color="primary">
       <Container maxWidth="lg">
         <Toolbar disableGutters variant="dense">
+
           <Box sx={{ justifyContent: "space-around", flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
             <Divider orientation="vertical" flexItem />
             {pages.map((page) => (
@@ -84,6 +85,7 @@ export default function Navbar() {
               ))}
             </Menu>
           </Box>
+          
         </Toolbar>
       </Container>
       <Box sx={{height: "2px", backgroundColor: `${customTheme.palette.secondary.main}`}} />

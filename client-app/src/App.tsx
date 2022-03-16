@@ -1,10 +1,12 @@
 import "./styles/App.css";
 import Splash from "./components/Splash/Splash";
-import About from "./components/About/About";
 import Navbar from "./components/Navbar";
+import About from "./components/About/About";
+import Portfolio from "./components/Portfolio/Portfolio";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "@mui/material";
 import { customTheme } from "./styles/customTheme";
+
 
 export default function App() {
   const theme = customTheme;
@@ -15,6 +17,7 @@ export default function App() {
         <Splash />
         <Navbar />
         <About />
+        <Portfolio />
         <Footer />
       </ThemeProvider>
     </div>
