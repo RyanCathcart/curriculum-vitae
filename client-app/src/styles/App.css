@@ -26,6 +26,10 @@
   z-index: -1;
 }
 
+.nav-button {
+  flex-grow: 1;
+}
+
 .About {
   padding-top: 1rem;
 }

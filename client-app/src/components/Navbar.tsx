@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-scroll";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 
 export default function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -31,6 +31,20 @@ export default function Navbar() {
     <AppBar className="Navbar" position="sticky" color="primary">
       <Container maxWidth="lg">
         <Toolbar disableGutters variant="dense">
+          <Box sx={{ justifyContent: "space-around", flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
+            <Divider orientation="vertical" flexItem />
+            {pages.map((page) => (
+              <Box key={page} sx={{ flexGrow: 1, display: "flex", justifyContent: "center"}}>
+                <Link className="nav-button" to={page} smooth={true} offset={-48}>
+                  <Button onClick={handleCloseNavMenu} sx={{ width: "100%", height: "100%", color: "white", display: "block" }}>
+                    {page}
+                  </Button>
+                </Link>
+                <Divider orientation="vertical" flexItem />
+              </Box>
+            ))}
+          </Box>
+
           <Box sx={{ flexGrow: 1, display: { xs: "flex", sm: "none" }, flexDirection: "row-reverse" }}>
             <IconButton
               size="large"
@@ -68,22 +82,6 @@ export default function Navbar() {
                 </Link>
               ))}
             </Menu>
-          </Box>
-          <Box sx={{ justifyContent: "space-around", flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
-            <Divider orientation="vertical" flexItem />
-            {pages.map((page) => (
-              <Fragment key={page}>
-                <Link to={page} smooth={true} offset={-48}>
-                  <Button
-                    onClick={handleCloseNavMenu}
-                    sx={{ justifyContent: "stretch", flexGrow: 1, color: "white", display: "block" }}
-                  >
-                    {page}
-                  </Button>
-                </Link>
-                <Divider orientation="vertical" flexItem />
-              </Fragment>
-            ))}
           </Box>
         </Toolbar>
       </Container>

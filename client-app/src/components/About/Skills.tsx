@@ -36,8 +36,8 @@ export default function Skills() {
   return (
     <Box>
       <AppBar position="static" elevation={0}>
-        <Tabs value={value} onChange={handleChange} variant="fullWidth" indicatorColor="primary" textColor="inherit">
-          <Tab label="Skills" />
+        <Tabs value={value} onChange={handleChange} variant="fullWidth" indicatorColor="secondary" textColor="inherit">
+          <Tab label="Skills" sx={{ fontSize: "1.5rem" }} />
           {/* <Divider orientation="vertical" flexItem />
           <Tab label="Hobbies" /> */}
         </Tabs>
