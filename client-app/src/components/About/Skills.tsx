@@ -15,16 +15,16 @@ import jfxIcon from "../../assets/skills/javafx.png";
 import pythonIcon from "../../assets/skills/python.png";
 
 const cards = [
-  { id: 1, image: cSharpIcon, text: "C#" },
-  { id: 2, image: dotNetIcon, text: "ASP.NET Core" },
-  { id: 3, image: jsIcon, text: "JavaScript" },
-  { id: 4, image: tsIcon, text: "TypeScript" },
-  { id: 5, image: reactIcon, text: "React" },
-  { id: 6, image: muiIcon, text: "Material UI" },
-  { id: 7, image: suiIcon, text: "Semantic UI" },
-  { id: 8, image: javaIcon, text: "Java" },
-  { id: 9, image: jfxIcon, text: "JavaFX" },
-  { id: 10, image: pythonIcon, text: "Python" },
+  { id: 1, image: cSharpIcon, imageAltText: "C Sharp", text: "C#" },
+  { id: 2, image: dotNetIcon, imageAltText: "ASP.NET Core", text: "ASP.NET Core" },
+  { id: 3, image: jsIcon, imageAltText: "JavaScript", text: "JavaScript" },
+  { id: 4, image: tsIcon, imageAltText: "TypeScript", text: "TypeScript" },
+  { id: 5, image: reactIcon, imageAltText: "React", text: "React" },
+  { id: 6, image: muiIcon, imageAltText: "Material UI", text: "Material UI" },
+  { id: 7, image: suiIcon, imageAltText: "Semantic UI", text: "Semantic UI" },
+  { id: 8, image: javaIcon, imageAltText: "Java", text: "Java" },
+  { id: 9, image: jfxIcon, imageAltText: "JavaFX", text: "JavaFX" },
+  { id: 10, image: pythonIcon, imageAltText: "Python", text: "Python" },
 ];
 
 export default function Skills() {
@@ -45,7 +45,7 @@ export default function Skills() {
       <TabPanel value={value} index={0}>
         <Grid container alignItems="stretch" spacing={{ xs: 2, md: 3 }}>
           {cards.map((card) => (
-            <SkillCard key={card.id} image={card.image} text={card.text} />
+            <SkillCard key={card.id} image={card.image} imageAltText={card.imageAltText} text={card.text} />
           ))}
         </Grid>
       </TabPanel>

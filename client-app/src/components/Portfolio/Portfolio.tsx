@@ -1,5 +1,6 @@
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography } from "@mui/material";
-import reactivitesThumb from "../../assets/portfolio/reactivities.png";
+import { Box, Container, Grid, Typography } from "@mui/material";
+import ProjectCard from "./ProjectCard";
+import reactivitiesThumb from "../../assets/portfolio/reactivities.png";
 
 export default function Portfolio() {
   return (
@@ -12,74 +13,14 @@ export default function Portfolio() {
           <Box>Here are some of the projects I've been working on:</Box>
         </Typography>
         <Grid container spacing={6}>
-          <Grid item xs={12} sm={6}>
-            <Card raised>
-              <CardMedia component="img" height="200" image={reactivitesThumb} alt="reactivies-img" />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Reactivities
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, magnam.
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">View Demo</Button>
-                <Button size="small">GitHub</Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Card raised>
-              <CardMedia component="img" height="200" image={reactivitesThumb} alt="reactivies-img" />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Reactivities
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, magnam.
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">View Demo</Button>
-                <Button size="small">GitHub</Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Card raised>
-              <CardMedia component="img" height="200" image={reactivitesThumb} alt="reactivies-img" />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Reactivities
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, magnam.
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">View Demo</Button>
-                <Button size="small">GitHub</Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Card raised>
-              <CardMedia component="img" height="200" image={reactivitesThumb} alt="reactivies-img" />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Reactivities
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, magnam.
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">View Demo</Button>
-                <Button size="small">GitHub</Button>
-              </CardActions>
-            </Card>
-          </Grid>
+          <ProjectCard
+            title="Reactivities"
+            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dolores."
+            image={reactivitiesThumb}
+            imageAltText="Reactivities"
+            demoLink="https://rwc-reactivities.herokuapp.com/"
+            repoLink="https://github.com/RyanCathcart/reactivities-udemy"
+          />
         </Grid>
       </Container>
     </Box>
