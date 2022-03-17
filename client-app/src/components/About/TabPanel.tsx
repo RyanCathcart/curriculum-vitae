@@ -17,12 +17,9 @@ export default function TabPanel(props: TabPanelProps) {
       id={`tabpanel-${index}`}
       aria-labelledby={`tab-${index}`}
       {...other}
+      style={{ height: "100%" }}
     >
-      {value === index && (
-        <Box sx={{ p: 3, backgroundColor: "hsl(0, 0%, 95%)"}}>
-          {children}
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 3, backgroundColor: "hsl(0, 0%, 95%)", height: "100%" }}>{children}</Box>}
     </div>
   );
 }

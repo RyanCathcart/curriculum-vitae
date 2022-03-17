@@ -34,7 +34,7 @@ export default function Skills() {
   };
 
   return (
-    <Box>
+    <Box sx={{ height: "100%" }}>
       <AppBar position="static" elevation={0}>
         <Tabs value={value} onChange={handleChange} variant="fullWidth" indicatorColor="secondary" textColor="inherit">
           <Tab label="Skills" sx={{ fontSize: "1.5rem" }} />

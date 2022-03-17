@@ -20,6 +20,7 @@ export default function About() {
           <img
             src={portrait}
             alt="portrait"
+            draggable={false}
             style={{
               width: "100%",
               border: "3px solid hsl(0, 0%, 100%)",
