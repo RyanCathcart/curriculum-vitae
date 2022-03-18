@@ -3,13 +3,13 @@ import { createTheme } from "@mui/material";
 declare module '@mui/material/styles' {
   interface Theme {
     customPalette: {
-      darker: string;
+      bgDark: string;
     };
   }
 
   interface ThemeOptions {
     customPalette?: {
-      darker?: string;
+      bgDark?: string;
     };
   }
 }
@@ -26,10 +26,10 @@ export const customTheme = createTheme({
       main: "rgba(0, 180, 216, 1)"
     }
   },
-  customPalette: {
-    darker: "#00171F",
-  },
   shape: {
     borderRadius: 0,
+  },
+  customPalette: {
+    bgDark: "hsl(224, 16.9%, 17.5%)",
   },
 });

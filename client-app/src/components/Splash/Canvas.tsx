@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { customTheme } from "../../styles/customTheme";
 import Particle from "./particle";
 
 export default function Canvas() {
@@ -16,7 +17,7 @@ export default function Canvas() {
   const particles = useRef<Particle[]>();
   const linkRadius = useRef<number>(400);
 
-  const numParticles: number = 30;
+  const numParticles = 30;
 
   const drawParticles = () => {
     if (!particles.current) return;
@@ -29,6 +30,8 @@ export default function Canvas() {
   // Executes when the Canvas component mounts
   // The return executes when the Canvas component unmounts
   useEffect(() => {
+    const backgroundColor: string = customTheme.customPalette.bgDark;
+    
     const linkPoints = (point: Particle, hubs: Particle[]) => {
       const context = canvasRef.current?.getContext("2d");
 
@@ -60,7 +63,7 @@ export default function Canvas() {
       const context = canvasRef.current?.getContext("2d");
       if (!context) return;
 
-      context.fillStyle = "rgba(37, 41, 52, 1)";
+      context.fillStyle = backgroundColor;
       context.fillRect(0, 0, context.canvas.width, context.canvas.height);
 
       drawLines();

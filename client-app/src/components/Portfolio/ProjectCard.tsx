@@ -1,10 +1,12 @@
 import { Box, Card, CardHeader, CardMedia, Grid } from "@mui/material";
 import HiddenButton from "./HiddenButton";
+import LinkIcon from '@mui/icons-material/Link';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 interface ProjectCardProps {
   title: string;
   description: string;
-  image: string;
+  image?: string;
   imageAltText: string;
   demoLink: string;
   repoLink: string;
@@ -21,7 +23,7 @@ export default function ProjectCard(props: ProjectCardProps) {
       <Card raised sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
         <CardHeader title={title} subheader={description} sx={{ flexGrow: 1 }} />
         <Box
-          height={cardMediaHeight}
+          height={image ? cardMediaHeight : 0}
           sx={{
             position: "relative",
             display: "flex",
@@ -38,27 +40,32 @@ export default function ProjectCard(props: ProjectCardProps) {
               visibility: "visible",
               pointerEvents: "auto",
               touchAction: "auto",
+              backgroundColor: "hsla(0, 0%, 95%, 90%)",
               filter: "opacity(100%)",
               transition: transition,
             },
           }}
         >
-          <CardMedia
-            className="cardMedia"
-            component="img"
-            height={cardMediaHeight}
-            image={image}
-            alt={imageAltText}
-            draggable={false}
-            sx={{
-              position: "absolute",
-              objectPosition: "50% 0",
-              filter: "blur(0)",
-              transition: transition,
-            }}
-          />
-          <HiddenButton label="View Demo" link={demoLink} transition={transition} />
-          <HiddenButton label="GitHub" link={repoLink} transition={transition} />
+          {image && (
+            <>
+              <CardMedia
+                className="cardMedia"
+                component="img"
+                height={cardMediaHeight}
+                image={image}
+                alt={imageAltText}
+                draggable={false}
+                sx={{
+                  position: "absolute",
+                  objectPosition: "50% 0",
+                  filter: "blur(0)",
+                  transition: transition,
+                }}
+              />
+              <HiddenButton label="View Demo" icon={<LinkIcon />} link={demoLink} transition={transition} />
+              <HiddenButton label="GitHub" icon={<GitHubIcon />} link={repoLink} transition={transition} />
+            </>
+          )}
         </Box>
       </Card>
     </Grid>
