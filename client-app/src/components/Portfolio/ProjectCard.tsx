@@ -1,4 +1,5 @@
-import { Box, Button, Card, CardHeader, CardMedia, Grid } from "@mui/material";
+import { Box, Card, CardHeader, CardMedia, Grid } from "@mui/material";
+import HiddenButton from "./HiddenButton";
 
 interface ProjectCardProps {
   title: string;
@@ -56,42 +57,8 @@ export default function ProjectCard(props: ProjectCardProps) {
               transition: transition,
             }}
           />
-          <Button
-            className="hidden-button"
-            variant="outlined"
-            color="primary"
-            href={demoLink}
-            sx={{
-              visibility: "collapse",
-              pointerEvents: "none",
-              touchAction: "none",
-              minWidth: "10em",
-              borderRadius: 1,
-              margin: 1,
-              filter: "opacity(0%)",
-              transition: transition,
-            }}
-          >
-            View Demo
-          </Button>
-          <Button
-            className="hidden-button"
-            variant="outlined"
-            color="primary"
-            href={repoLink}
-            sx={{
-              visibility: "collapse",
-              pointerEvents: "none",
-              touchAction: "none",
-              minWidth: "10em",
-              borderRadius: 1,
-              margin: 1,
-              filter: "opacity(0%)",
-              transition: transition,
-            }}
-          >
-            GitHub
-          </Button>
+          <HiddenButton label="View Demo" link={demoLink} transition={transition} />
+          <HiddenButton label="GitHub" link={repoLink} transition={transition} />
         </Box>
       </Card>
     </Grid>
