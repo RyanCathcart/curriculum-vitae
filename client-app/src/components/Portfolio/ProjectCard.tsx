@@ -18,8 +18,8 @@ export default function ProjectCard(props: ProjectCardProps) {
 
   return (
     <Grid item xs={12} md={6}>
-      <Card raised>
-        <CardHeader title={title} subheader={description} />
+      <Card raised sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+        <CardHeader title={title} subheader={description} sx={{ flexGrow: 1 }} />
         <Box
           height={cardMediaHeight}
           sx={{
