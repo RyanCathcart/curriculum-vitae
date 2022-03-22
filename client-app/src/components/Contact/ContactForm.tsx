@@ -2,13 +2,13 @@ import { Box, Button, Container, TextField } from "@mui/material";
 import emailjs from "@emailjs/browser";
 
 export default function ContactForm() {
-  const serviceID = process.env.REACT_APP_EMAILJS_SERVICEID;
-  const templateID = process.env.REACT_APP_EMAILJS_TEMPLATEID;
-  const userID = process.env.REACT_APP_EMAILJS_USERID;
+  const serviceID = "service_yqo5rw5";
+  const templateID = "template_loaeo0l";
+  const userID = "dFpCPYdaMXPW8Jcu7";
 
   const sendEmail = (e: any) => {
     e.preventDefault();
-    emailjs.sendForm(serviceID!, templateID!, e.target, userID!)
+    emailjs.sendForm(serviceID, templateID, e.target, userID)
       .then((result) => {
         console.log(result.text);
       }, (error) => {
