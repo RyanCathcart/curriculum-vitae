@@ -1,4 +1,4 @@
-export const options = {
+const options = {
   particleColor: "rgba(255, 255, 255, 1)",
   defaultRadius: 2,
   variantRadius: 2,
@@ -16,7 +16,7 @@ export default class Particle {
   radius: number;
   speed: number;
   directionAngle: number;
-  vector: any;
+  velocity: any;
 
   constructor(context: CanvasRenderingContext2D) {
     this.context = context;
@@ -28,7 +28,7 @@ export default class Particle {
     this.radius = options.defaultRadius + Math.random() * options.variantRadius;
     this.speed = options.defaultSpeed + Math.random() * options.variantSpeed;
     this.directionAngle = Math.floor(Math.random() * 360);
-    this.vector = {
+    this.velocity = {
       x: Math.cos(this.directionAngle) * this.speed,
       y: Math.sin(this.directionAngle) * this.speed,
     };
@@ -36,13 +36,13 @@ export default class Particle {
 
   update() {
     this.border();
-    this.x += this.vector.x;
-    this.y += this.vector.y;
+    this.x += this.velocity.x;
+    this.y += this.velocity.y;
   }
 
   border() {
-    if (this.x <= 0 || this.x >= this.canvasW) this.vector.x *= -1;
-    if (this.y <= 0 || this.y >= this.canvasH) this.vector.y *= -1;
+    if (this.x <= 0 || this.x >= this.canvasW) this.velocity.x *= -1;
+    if (this.y <= 0 || this.y >= this.canvasH) this.velocity.y *= -1;
     if (this.x < 0) this.x = 0;
     if (this.x > this.canvasW) this.x = this.canvasW;
     if (this.y < 0) this.y = 0;
