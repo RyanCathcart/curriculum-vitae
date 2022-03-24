@@ -1,13 +1,14 @@
 import { Box, Button, Container, TextField } from "@mui/material";
 import emailjs from "@emailjs/browser";
 import useForm, { Values } from "../../hooks/useForm";
+import { useState } from "react";
+import SendIcon from "@mui/icons-material/Send";
 
 export default function ContactForm() {
+  const [emailSent, setEmailSent] = useState(false);
   const serviceID = "service_yqo5rw5";
   const templateID = "template_loaeo0l";
   const userID = "dFpCPYdaMXPW8Jcu7";
-
-  
 
   const sendEmail = (e: any) => {
     emailjs.sendForm(serviceID, templateID, e.target, userID).then(
@@ -21,12 +22,12 @@ export default function ContactForm() {
   };
 
   const validate = (fieldValues: Values) => {
-    let temp: Values = {...errors};
+    let temp: Values = { ...errors };
     if ("from_name" in fieldValues) {
       temp.from_name = fieldValues.from_name ? "" : "This field is required";
     }
     if ("sender_email" in fieldValues) {
-      temp.sender_email = (/.+@.+..+/).test(fieldValues.sender_email!) ? "" : "Email is not valid";
+      temp.sender_email = /.+@.+..+/.test(fieldValues.sender_email!) ? "" : "Email is not valid";
     }
     if ("message" in fieldValues) {
       temp.message = fieldValues.message ? "" : "This field is required";
@@ -43,6 +44,7 @@ export default function ContactForm() {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (validate(values)) {
+      setEmailSent(true);
       sendEmail(e);
     }
     e.target.reset();
@@ -65,6 +67,7 @@ export default function ContactForm() {
           name="from_name"
           margin="normal"
           required
+          disabled={emailSent}
           onChange={handleInputChange}
           {...(errors.from_name && { error: true, helperText: errors.from_name })}
         />
@@ -74,6 +77,7 @@ export default function ContactForm() {
           name="sender_email"
           margin="normal"
           required
+          disabled={emailSent}
           onChange={handleInputChange}
           {...(errors.sender_email && { error: true, helperText: errors.sender_email })}
         />
@@ -83,13 +87,21 @@ export default function ContactForm() {
           name="message"
           margin="normal"
           required
+          disabled={emailSent}
           onChange={handleInputChange}
           {...(errors.message && { error: true, helperText: errors.message })}
           multiline={true}
           minRows={4}
         />
-        <Button type="submit" variant="contained" color="secondary" sx={{ my: 1 }}>
-          Submit
+        <Button type="submit" variant="contained" disabled={emailSent} color="secondary" sx={{ my: 2, py: 2 }}>
+          {emailSent ? (
+            "Email sent"
+          ) : (
+            <>
+              Send email&nbsp;
+              <SendIcon />
+            </>
+          )}
         </Button>
       </Box>
     </Container>
