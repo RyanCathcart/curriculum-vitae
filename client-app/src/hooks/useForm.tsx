@@ -10,27 +10,36 @@ export default function useForm(validateOnChange = false, validate: any) {
   const [values, setValues] = useState<Values>({
     from_name: "",
     sender_email: "",
-    message: ""
+    message: "",
   });
 
   const [errors, setErrors] = useState<Values>({});
 
   const handleInputChange = (e: any) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setValues({
       ...values,
-      [name]: value
+      [name]: value,
     });
     if (validateOnChange) {
-      validate({[name]: value})
+      validate({ [name]: value });
     }
   };
-  
+
+  const resetForm = () => {
+    setValues({
+      from_name: "",
+      sender_email: "",
+      message: "",
+    });
+  };
+
   return {
     values,
     setValues,
     errors,
     setErrors,
-    handleInputChange
+    handleInputChange,
+    resetForm,
   };
 }

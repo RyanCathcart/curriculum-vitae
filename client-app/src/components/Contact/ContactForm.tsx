@@ -39,15 +39,15 @@ export default function ContactForm() {
     }
   };
 
-  const { values, errors, setErrors, handleInputChange } = useForm(true, validate);
+  const { values, errors, setErrors, handleInputChange, resetForm } = useForm(true, validate);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (validate(values)) {
       setEmailSent(true);
       sendEmail(e);
+      resetForm();
     }
-    e.target.reset();
   };
 
   return (
