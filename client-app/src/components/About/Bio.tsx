@@ -1,8 +1,14 @@
 import "../../styles/App.css";
 import portrait from "../../assets/portrait.jpg";
-import { Box, CardContent, Typography } from "@mui/material";
+import { Box, CardActions, CardContent, IconButton, Typography } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-export default function About() {
+export default function Bio() {
+  const handleClick = (link: string) => {
+    link === "/" ? window.location.replace(link) : window.open(link);
+  };
+
   return (
     <Box
       component="div"
@@ -32,12 +38,29 @@ export default function About() {
         <Typography variant="h4" align="center" gutterBottom>
           Bio
         </Typography>
-        <Typography variant="body1" align="center" gutterBottom>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, quaerat debitis perferendis natus, atque
-          voluptate ducimus illum reprehenderit soluta velit architecto molestiae, odit deleniti ab harum quos ex quod
-          veritatis!
+        <Typography variant="body1" align="center">
+          I'm a 23 year old full-stack web developer based in New Jersey. I'm driven to bring both functional and
+          appealing apps to the web. If you would like to contact me, check out the form below!
         </Typography>
       </CardContent>
+      <CardActions>
+        <IconButton
+          color="primary"
+          onClick={() => {
+            handleClick("https://github.com/RyanCathcart");
+          }}
+        >
+          <GitHubIcon />
+        </IconButton>
+        <IconButton
+          color="primary"
+          onClick={() => {
+            handleClick("https://www.linkedin.com/in/ryan-cathcart-4b4503128/");
+          }}
+        >
+          <LinkedInIcon />
+        </IconButton>
+      </CardActions>
     </Box>
   );
 }

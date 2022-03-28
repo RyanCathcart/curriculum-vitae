@@ -99,7 +99,7 @@ export default function ContactForm() {
           ) : (
             <>
               Send email&nbsp;
-              <SendIcon />
+              <SendIcon fontSize="small" />
             </>
           )}
         </Button>
