@@ -13,6 +13,7 @@ import suiIcon from "../../assets/skills/semanticui.png";
 import javaIcon from "../../assets/skills/java.png";
 import jfxIcon from "../../assets/skills/javafx.png";
 import pythonIcon from "../../assets/skills/python.png";
+import pgsqlIcon from "../../assets/skills/postgresql.png";
 
 const cards = [
   { id: 1, image: cSharpIcon, imageAltText: "C Sharp", text: "C#" },
@@ -25,6 +26,7 @@ const cards = [
   { id: 8, image: javaIcon, imageAltText: "Java", text: "Java" },
   { id: 9, image: jfxIcon, imageAltText: "JavaFX", text: "JavaFX" },
   { id: 10, image: pythonIcon, imageAltText: "Python", text: "Python" },
+  { id: 11, image: pgsqlIcon, imageAltText: "PostgreSQL", text: "PostgreSQL" },
 ];
 
 export default function Skills() {
