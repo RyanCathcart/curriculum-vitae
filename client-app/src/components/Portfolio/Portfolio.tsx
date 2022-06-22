@@ -2,6 +2,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import ProjectCard from "./ProjectCard";
 import reactivitiesThumb from "../../assets/portfolio/reactivities.png";
 import devSiteThumb from "../../assets/portfolio/dev-site.png";
+import eCommerceStore from "../../assets/portfolio/e-commerce-store.png";
 
 const cards = [
   {
@@ -9,34 +10,37 @@ const cards = [
     title: "Reactivities",
     image: reactivitiesThumb,
     imageAltText: "Reactivities",
-    description: "A full-stack React application that allows users to create an account and post activities/meetups to a public dashboard. Utilizes an ASP.NET Core API back-end.",
+    description:
+      "A full-stack React application that allows users to create an account and post activities/meetups to a public dashboard. Utilizes an ASP.NET Core API back-end.",
     demoLink: "https://rwc-reactivities.herokuapp.com/",
     repoLink: "https://github.com/RyanCathcart/reactivities-udemy",
   },
   {
     id: 2,
+    title: "E-Commerce Store",
+    image: eCommerceStore,
+    imageAltText: "E-Commerce Store",
+    description:
+      "A mock E-store application made with React and .NET 6 that allows users to log-in, browse (fake) products, and make payments using Stripe payment infrastructure.",
+    demoLink: "https://rwc-react-ecommerce.herokuapp.com/",
+    repoLink: "https://github.com/RyanCathcart/react-ecommerce-store",
+  },
+  {
+    id: 3,
     title: "Developer Portfolio",
     image: devSiteThumb,
     imageAltText: "Developer Portfolio",
-    description: "The website that you're currently using is a React application designed using Material UI and employs an EmailJS email service.",
+    description:
+      "The website that you're currently using is a React application designed using Material UI and employs an EmailJS email service.",
     demoLink: "/",
     repoLink: "https://github.com/RyanCathcart/developer-portfolio",
   },
   {
-    id: 3,
-    title: "Other",
-    image: undefined,
-    imageAltText: "Other",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid esse laboriosam necessitatibus voluptatem placeat earum, consectetur nulla ea quia obcaecati?",
-    demoLink: "#",
-    repoLink: "#",
-  },
-  {
     id: 4,
-    title: "Another",
+    title: "And more to come",
     image: undefined,
-    imageAltText: "Another",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dolores.",
+    imageAltText: "And more to come",
+    description: "I'm always working on a personal project. Check out my GitHub profile to see what's in store!",
     demoLink: "#",
     repoLink: "#",
   },
@@ -54,7 +58,7 @@ export default function Portfolio() {
         </Typography>
         <Grid container spacing={6} alignItems="stretch">
           {cards.map((card) => (
-            <ProjectCard 
+            <ProjectCard
               key={card.id}
               title={card.title}
               description={card.description}

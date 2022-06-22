@@ -39,7 +39,7 @@ export default function Bio() {
           Bio
         </Typography>
         <Typography variant="body1" align="center">
-          I'm a 23 year old full-stack web developer based in New Jersey. I'm driven to bring both functional and
+          I'm a 24 year old full-stack web developer based in New Jersey. I'm driven to bring both functional and
           appealing apps to the web. If you would like to contact me, check out the form below!
         </Typography>
       </CardContent>
