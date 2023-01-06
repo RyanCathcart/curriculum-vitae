@@ -20,6 +20,16 @@
   overflow: hidden;
 }
 
+.Hero {
+  position: relative;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  overflow: hidden;
+}
+
 .splash-canvas {
   position: absolute;
   top: 0;

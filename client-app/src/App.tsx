@@ -7,6 +7,7 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "@mui/material";
 import { customTheme } from "./styles/customTheme";
+import Hero from './components/Hero/Hero';
 
 export default function App() {
   const theme = customTheme;
@@ -14,7 +15,8 @@ export default function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <Splash />
+        {/*<Splash />*/}
+        <Hero />
         <Navbar />
         <About />
         <Portfolio />
