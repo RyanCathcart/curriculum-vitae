@@ -1,25 +1,16 @@
-import { Box, Button, createTheme, responsiveFontSizes, ThemeProvider, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import Canvas from '../Splash/Canvas';
-import { Link } from 'react-scroll';
+import { Box, Button, Typography } from '@mui/material';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import { customTheme } from '../../styles/customTheme';
+import { Link } from 'react-scroll';
+import P5Canvas from '../Hero/P5Canvas';
 
 export default function Hero() {
-  let theme = createTheme();
-  theme = responsiveFontSizes(theme);
-
-  const [dimensions, setDimensions] = useState({
-    height: window.innerHeight,
-    width: window.innerWidth,
-  });
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
 
   useEffect(() => {
     function handleResize() {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
+      setViewportHeight(window.innerHeight);
     }
 
     window.addEventListener('resize', handleResize);
@@ -30,20 +21,74 @@ export default function Hero() {
   }, []);
 
   return (
-    <Box className='Hero' component='div' height={dimensions.height} sx={{background: customTheme.customPalette.bgDark}}>
-      {/*<Canvas />*/}
-      <Box sx={{ p: '10%' }}>
-        <ThemeProvider theme={theme}>
-          <Typography variant='h4' align='left' color='white' noWrap={true} gutterBottom sx={{ fontWeight: 500 }}>
-            <span>Hello, I'm&nbsp;</span>
-            <span className='highlighted-text'>Ryan Cathcart</span>
-            <span>
-              ,<br />a full-stack web developer.
-            </span>
-          </Typography>
-        </ThemeProvider>
-        <Link to='About' smooth={true} offset={-48}>
-          <Button size='large' variant='contained' color='inherit'>
+    <Box
+      className='Hero Home'
+      height={viewportHeight}
+      sx={{
+        boxShadow: '0 -10vh 5vh -5vh inset ' + customTheme.palette.primary.dark,
+      }}
+    >
+      <P5Canvas />
+      <Box
+        sx={{
+          p: '5%',
+          animation: 'fadeIn 5s',
+        }}
+      >
+        <Typography
+          variant='h4'
+          display='inline'
+          align='left'
+          color='white'
+          noWrap={true}
+          sx={{
+            fontWeight: 600,
+            fontSize: {
+              xs: '1.4rem',
+              sm: '2rem',
+              md: '3.75rem',
+            },
+          }}
+        >
+          Hi, I'm&nbsp;
+        </Typography>
+        <Typography
+          variant='h4'
+          display='inline'
+          align='left'
+          color={customTheme.palette.secondary.main}
+          noWrap={true}
+          sx={{
+            fontWeight: 600,
+            fontSize: {
+              xs: '1.4rem',
+              sm: '2rem',
+              md: '3.75rem',
+            },
+          }}
+        >
+          Ryan Cathcart
+        </Typography>
+        <Typography
+          variant='h4'
+          display='inline'
+          align='left'
+          color='white'
+          noWrap={true}
+          sx={{
+            fontWeight: 600,
+            fontSize: {
+              xs: '1.4rem',
+              sm: '2rem',
+              md: '3.75rem',
+            },
+          }}
+        >
+          ,<br />a full-stack web developer.
+          <br />
+        </Typography>
+        <Link to='About' smooth={true}>
+          <Button size='large' variant='outlined' color='secondary' sx={{ mt: 2, py: 1.5 }}>
             View my work&nbsp;
             <ArrowForwardRoundedIcon fontSize='small' />
           </Button>

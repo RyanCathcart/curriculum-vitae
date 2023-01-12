@@ -1,23 +1,20 @@
-import "./styles/App.css";
-import Splash from "./components/Splash/Splash";
-import Navbar from "./components/Navbar/Navbar";
-import About from "./components/About/About";
-import Portfolio from "./components/Portfolio/Portfolio";
-import Contact from "./components/Contact/Contact";
-import Footer from "./components/Footer";
-import { ThemeProvider } from "@mui/material";
-import { customTheme } from "./styles/customTheme";
+import './styles/App.css';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { customTheme } from './styles/customTheme';
+import About from './components/About/About';
+import Portfolio from './components/Portfolio/Portfolio';
+import Contact from './components/Contact/Contact';
+import Footer from './components/Footer';
 import Hero from './components/Hero/Hero';
+import FloatingNav from './components/Navigation/FloatingNav';
 
 export default function App() {
-  const theme = customTheme;
-
   return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
-        {/*<Splash />*/}
+    <div className='App'>
+      <CssBaseline />
+      <ThemeProvider theme={customTheme}>
         <Hero />
-        <Navbar />
+        <FloatingNav />
         <About />
         <Portfolio />
         <Contact />

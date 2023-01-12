@@ -2,7 +2,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import ProjectCard from "./ProjectCard";
 import reactivitiesThumb from "../../assets/portfolio/reactivities.png";
 import devSiteThumb from "../../assets/portfolio/dev-site.png";
-import eCommerceStore from "../../assets/portfolio/e-commerce-store.png";
+import eCommerceStoreThumb from "../../assets/portfolio/e-commerce-store.png";
 
 const cards = [
   {
@@ -18,7 +18,7 @@ const cards = [
   {
     id: 2,
     title: "E-Commerce Store",
-    image: eCommerceStore,
+    image: eCommerceStoreThumb,
     imageAltText: "E-Commerce Store",
     description:
       "A mock E-store application made with React and .NET 6 that allows users to log-in, browse (fake) products, and make payments using Stripe payment infrastructure.",
@@ -48,8 +48,8 @@ const cards = [
 
 export default function Portfolio() {
   return (
-    <Box sx={{ backgroundColor: "hsl(0, 0%, 95%)" }}>
-      <Container className="Portfolio" maxWidth="lg" sx={{ py: 8 }}>
+    <Box className="Portfolio" sx={{ backgroundColor: "hsl(0, 0%, 95%)" }}>
+      <Container maxWidth="lg" sx={{ py: 8 }}>
         <Typography variant="h2" color="primary" align="center" sx={{ paddingBottom: 1, fontWeight: "bold" }}>
           PORTFOLIO
         </Typography>
