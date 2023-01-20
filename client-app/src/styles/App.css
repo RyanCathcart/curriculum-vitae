@@ -1,24 +1,46 @@
-.App {
-  position: relative;
+img {
+    max-width: 100%;
+    display: block;
 }
 
-.Hero {
-  position: relative;
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  overflow: hidden;
+.styled-portrait {
+    --transform-speed: 250ms;
+    position: relative;
+    max-width: 30rem;
+    margin-inline: auto;
 }
 
-.hero-canvas {
-  position: absolute;
-  top: 0;
-  z-index: -1;
+.portrait-container {
+    aspect-ratio: 1 / 1;
+    display: grid;
+    align-items: end;
+    border-radius: 0 0 100vw 100vw;
+    overflow: hidden;
+    transition: transform var(--transform-speed) ease;
 }
 
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+.portrait-container:hover {
+    transform: scale(1.1);
+}
+
+.portrait-bg {
+    position: absolute;
+    inset: auto 0 0;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    margin-inline: auto;
+    object-fit: cover;
+}
+
+.portrait-img {
+    position: relative;
+    left: 1rem;
+    max-width: 60%;
+    transform:scale(1.2);
+    transition: transform calc(var(--transform-speed) * 1.2) ease;
+}
+
+.portrait-container:hover .portrait-img {
+    transform: scale(1.2) translateY(-1rem);
 }

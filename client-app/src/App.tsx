@@ -7,6 +7,7 @@ import Contact from './components/Contact/Contact';
 import Footer from './components/Footer';
 import Hero from './components/Hero/Hero';
 import FloatingNav from './components/Navigation/FloatingNav';
+import NewAbout from './components/About/NewAbout';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <ThemeProvider theme={customTheme}>
         <Hero />
         <FloatingNav />
+        <NewAbout />
         <About />
         <Portfolio />
         <Contact />

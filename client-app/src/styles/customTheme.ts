@@ -9,30 +9,27 @@ export const customTheme = createTheme({
     mode: 'dark',
     primary: {
       main: 'hsl(221, 27%, 14.5%)',
-      dark: 'hsl(221, 27%, 8%)',
     },
     secondary: {
       main: 'rgba(0, 180, 216, 1)',
     },
+    background: {
+      paper: 'hsl(221, 27%, 8%)',
+      default: 'hsl(221, 27%, 8%)',
+    },
   },
-  shape: {
-    borderRadius: 4,
-  },
-  customPalette: {
-    bgDark: 'hsl(224, 16.9%, 17.5%)',
+  typography: {
+    h1: {
+      fontWeight: 600,
+      fontSize: '3.75rem',
+      lineHeight: 1.235,
+      letterSpacing: '0.00735em',
+    },
   },
 });
 
 declare module '@mui/material/styles' {
-  interface Theme {
-    customPalette: {
-      bgDark: string;
-    };
-  }
+  interface Theme {}
 
-  interface ThemeOptions {
-    customPalette: {
-      bgDark: string;
-    };
-  }
+  interface ThemeOptions {}
 }

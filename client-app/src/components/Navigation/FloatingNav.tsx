@@ -32,7 +32,6 @@ export default function FloatingNav() {
       <Tooltip title='Menu'>
         <Fab
           onClick={handleClick}
-          onMouseOver={handleClick}
           color='secondary'
           size='large'
           aria-controls={open ? 'menu' : undefined}

@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import { P5CanvasInstance, ReactP5Wrapper } from 'react-p5-wrapper';
 import { customTheme } from '../../styles/customTheme';
 
@@ -8,12 +9,12 @@ function sketch(p5: P5CanvasInstance) {
   let terrain: number[][] = [];
   let flying = 0;
 
-  const BACKGROUND_COLOR = customTheme.palette.primary.dark;
-  const SHAPE_FILL_COLOR = "rgba(0, 180, 216, 0.0234375)";
-  const SCALE = 100; // Scale of the polygons 100
-  const FLYING_SPEED = 0.002; // Speed that the animation progresses 0.002
-  const PERLIN_NOISE_OFFSET = 0.2; // How quickly the vertices traverse through the perlin noise function 0.2
-  const TERRAIN_AMPLITUDE = 250; // The range of the lowest valleys to the highest peaks, from -terrainScale to terrainScale 150 or 200
+  const BACKGROUND_COLOR = customTheme.palette.background.default;
+  const SHAPE_FILL_COLOR = 'rgba(0, 180, 216, 0.0234375)';
+  const SCALE = 100; // Scale of the polygons
+  const FLYING_SPEED = 0.002; // Speed that the animation progresses
+  const PERLIN_NOISE_OFFSET = 0.2; // How quickly the vertices traverse through the perlin noise function
+  const TERRAIN_AMPLITUDE = 250; // The range of the lowest valleys to the highest peaks, from -TERRAIN_AMPLITUDE to TERRAIN_AMPLITUDE
 
   p5.setup = () => {
     w = document.body.clientWidth;
@@ -70,8 +71,8 @@ function sketch(p5: P5CanvasInstance) {
 
 export default function P5Canvas() {
   return (
-    <div className='hero-canvas'>
+    <Box position='absolute' top='0' sx={{ zIndex: -1 }}>
       <ReactP5Wrapper sketch={sketch} />
-    </div>
+    </Box>
   );
 }
