@@ -25,6 +25,9 @@ export const customTheme = createTheme({
       lineHeight: 1.235,
       letterSpacing: '0.00735em',
     },
+    body1: {
+      fontSize: '1.3rem',
+    },
   },
 });
 

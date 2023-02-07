@@ -1,7 +1,6 @@
 import './styles/App.css';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { customTheme } from './styles/customTheme';
-import About from './components/About/About';
 import Portfolio from './components/Portfolio/Portfolio';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer';
@@ -17,7 +16,6 @@ export default function App() {
         <Hero />
         <FloatingNav />
         <NewAbout />
-        <About />
         <Portfolio />
         <Contact />
         <Footer />

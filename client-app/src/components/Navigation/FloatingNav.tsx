@@ -27,6 +27,7 @@ export default function FloatingNav() {
         width: '100vw',
         display: 'flex',
         flexDirection: 'row-reverse',
+        zIndex: 1000,
       }}
     >
       <Tooltip title='Menu'>

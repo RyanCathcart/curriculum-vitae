@@ -10,9 +10,9 @@ export default function SkillCard(props: SkillCardProps) {
   const { image, imageAltText, text } = props;
 
   return (
-    <Grid item xs={4} sm={4} md={3}>
+    <Grid item xs={6} sm={6} md={2}>
       <Card sx={{ borderRadius: '5%', height: '100%' }}>
-        <CardMedia component='img' src={image} alt={imageAltText} sx={{ padding: 1 }} draggable={false} />
+        <CardMedia component='img' src={image} alt={imageAltText}  sx={{ p: 1 }} draggable={false} />
         <Typography variant='subtitle2' align='center'>
           {text}
         </Typography>
