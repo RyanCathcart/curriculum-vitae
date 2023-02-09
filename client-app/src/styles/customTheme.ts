@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material';
+import { createTheme, PaletteColor, PaletteColorOptions } from '@mui/material';
 
 // Configuration for the custom theme being used for Material UI for React
 // The default theme object's properties that can be overidden are described at this link:
@@ -9,30 +9,41 @@ export const customTheme = createTheme({
     mode: 'dark',
     primary: {
       main: 'hsl(221, 27%, 14.5%)',
-      dark: 'hsl(221, 27%, 8%)',
     },
     secondary: {
-      main: 'rgba(0, 180, 216, 1)',
+      main: 'rgba(0, 179, 214, 1)',
+    },
+    background: {
+      paper: 'hsl(221, 27%, 8%)',
+      default: '#0f121a',
+    },
+    deepBackground: {
+      main: 'hsl(214, 30%, 9%)',
     },
   },
-  shape: {
-    borderRadius: 4,
-  },
-  customPalette: {
-    bgDark: 'hsl(224, 16.9%, 17.5%)',
+  typography: {
+    h1: {
+      fontWeight: 600,
+      fontSize: '3.75rem',
+      lineHeight: 1.235,
+      letterSpacing: '0.00735em',
+    },
+    body1: {
+      fontSize: '1.3rem',
+    },
   },
 });
 
 declare module '@mui/material/styles' {
-  interface Theme {
-    customPalette: {
-      bgDark: string;
-    };
+  interface Theme {}
+
+  interface ThemeOptions {}
+
+  interface Palette {
+    deepBackground?: PaletteColor;
   }
 
-  interface ThemeOptions {
-    customPalette: {
-      bgDark: string;
-    };
+  interface PaletteOptions {
+    deepBackground?: PaletteColorOptions;
   }
 }

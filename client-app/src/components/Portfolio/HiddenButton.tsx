@@ -2,14 +2,14 @@ import { Button } from "@mui/material";
 import { ReactNode } from "react";
 
 interface HiddenButtonProps {
-  label: string;
+  children?: string;
   icon?: ReactNode;
   link: string;
   transition: string;
 }
 
 export default function HiddenButton(props: HiddenButtonProps) {
-  const { label, icon, link, transition } = props;
+  const { children, icon, link, transition } = props;
 
   const handleClick = () => {
     link === "/" ? window.location.replace(link) : window.open(link);
@@ -34,7 +34,7 @@ export default function HiddenButton(props: HiddenButtonProps) {
         transition: transition,
       }}
     >
-      {label}
+      {children}
     </Button>
   );
 }
