@@ -36,14 +36,19 @@ const cards = [
 export default function Skills() {
   return (
     <Box
-      sx={{ py: 8, backgroundColor: customTheme.palette.background.default }}
+      className='Skills'
+      sx={{
+        pt: 8,
+        pb: { xs: 12, md: 32 },
+        backgroundColor: customTheme.palette.background.default,
+      }}
     >
       <Container maxWidth='lg'>
         <Typography
           variant='h3'
           color='white'
-          gutterBottom
-          sx={{ fontWeight: 'bold' }}
+          align='center'
+          sx={{ pb: 4, fontWeight: 'bold' }}
         >
           SKILLS
         </Typography>

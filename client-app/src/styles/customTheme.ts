@@ -15,7 +15,7 @@ export const customTheme = createTheme({
     },
     background: {
       paper: 'hsl(221, 27%, 8%)',
-      default: 'hsl(221, 27%, 8%)',
+      default: '#0f121a',
     },
     deepBackground: {
       main: 'hsl(214, 30%, 9%)',

@@ -7,6 +7,8 @@ import Footer from './Footer';
 import Hero from '../Hero/Hero';
 import FloatingNav from './FloatingNav';
 import About from '../About/About';
+import DiagonalSeparator from './DiagonalSeparator';
+import Skills from '../Skills/Skills';
 
 export default function App() {
   return (
@@ -16,6 +18,11 @@ export default function App() {
         <FloatingNav />
         <Hero />
         <About />
+        <DiagonalSeparator
+          colorBottom={customTheme.palette.background.default}
+        />
+        <Skills />
+        <DiagonalSeparator flip colorBottom='hsl(0, 0%, 95%)' />
         <Portfolio />
         <Contact />
         <Footer />

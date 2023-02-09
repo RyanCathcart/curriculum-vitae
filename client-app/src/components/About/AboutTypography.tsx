@@ -5,7 +5,7 @@ interface BioTypographyProps {
   color?: string;
 }
 
-export default function BioTypography(props: BioTypographyProps) {
+export default function AboutTypography(props: BioTypographyProps) {
   const { children, color } = props;
 
   return (

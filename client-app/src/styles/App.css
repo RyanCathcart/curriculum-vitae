@@ -1,3 +1,7 @@
+.App {
+    overflow-x: hidden;
+}
+
 img {
     max-width: 100%;
     display: block;
