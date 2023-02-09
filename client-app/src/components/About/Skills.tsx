@@ -1,5 +1,5 @@
 import '../../styles/App.css';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import SkillCard from './SkillCard';
 import cSharpIcon from '../../assets/skills/csharp.png';
 import dotNetIcon from '../../assets/skills/dotnet.png';
@@ -12,6 +12,7 @@ import javaIcon from '../../assets/skills/java.png';
 import jfxIcon from '../../assets/skills/javafx.png';
 import pythonIcon from '../../assets/skills/python.png';
 import pgsqlIcon from '../../assets/skills/postgresql.png';
+import { customTheme } from '../../styles/customTheme';
 
 const cards = [
   { id: 1, image: cSharpIcon, imageAltText: 'C Sharp', text: 'C#' },
@@ -34,25 +35,29 @@ const cards = [
 
 export default function Skills() {
   return (
-    <Box sx={{ py: 8 }}>
-      <Typography
-        variant='h3'
-        color='white'
-        gutterBottom
-        sx={{ fontWeight: 'bold' }}
-      >
-        SKILLS
-      </Typography>
-      <Grid container alignItems='stretch' spacing={{ xs: 1, md: 3 }}>
-        {cards.map((card) => (
-          <SkillCard
-            key={card.id}
-            image={card.image}
-            imageAltText={card.imageAltText}
-            text={card.text}
-          />
-        ))}
-      </Grid>
+    <Box
+      sx={{ py: 8, backgroundColor: customTheme.palette.background.default }}
+    >
+      <Container maxWidth='lg'>
+        <Typography
+          variant='h3'
+          color='white'
+          gutterBottom
+          sx={{ fontWeight: 'bold' }}
+        >
+          SKILLS
+        </Typography>
+        <Grid container alignItems='stretch' spacing={{ xs: 1, md: 3 }}>
+          {cards.map((card) => (
+            <SkillCard
+              key={card.id}
+              image={card.image}
+              imageAltText={card.imageAltText}
+              text={card.text}
+            />
+          ))}
+        </Grid>
+      </Container>
     </Box>
   );
 }

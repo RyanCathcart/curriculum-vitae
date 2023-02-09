@@ -9,15 +9,21 @@ export default function About() {
     <Box
       className='About'
       sx={{
-        backgroundColor: customTheme.palette.deepBackground?.main,
         minHeight: '100vh',
-        py: { xs: 4, md: 16 },
+        overflowX: 'hidden',
       }}
     >
-      <Container maxWidth='lg'>
-        <Bio />
-        <Skills />
-      </Container>
+      <Bio />
+      <Box
+        sx={{
+          width: 0,
+          height: 0,
+          borderLeft: '100vw solid transparent',
+          borderBottom: '5vw solid ' + customTheme.palette.background.default,
+          marginTop: '-5vw',
+        }}
+      />
+      <Skills />
     </Box>
   );
 }
