@@ -15,7 +15,12 @@ import pgsqlIcon from '../../assets/skills/postgresql.png';
 
 const cards = [
   { id: 1, image: cSharpIcon, imageAltText: 'C Sharp', text: 'C#' },
-  { id: 2, image: dotNetIcon, imageAltText: 'ASP.NET Core', text: 'ASP.NET Core' },
+  {
+    id: 2,
+    image: dotNetIcon,
+    imageAltText: 'ASP.NET Core',
+    text: 'ASP.NET Core',
+  },
   { id: 3, image: jsIcon, imageAltText: 'JavaScript', text: 'JavaScript' },
   { id: 4, image: tsIcon, imageAltText: 'TypeScript', text: 'TypeScript' },
   { id: 5, image: reactIcon, imageAltText: 'React', text: 'React' },
@@ -29,13 +34,23 @@ const cards = [
 
 export default function Skills() {
   return (
-    <Box sx={{ p: 8 }}>
-      <Typography variant='h2' color='white' gutterBottom sx={{ fontWeight: 'bold' }}>
+    <Box sx={{ py: 8 }}>
+      <Typography
+        variant='h3'
+        color='white'
+        gutterBottom
+        sx={{ fontWeight: 'bold' }}
+      >
         SKILLS
       </Typography>
-      <Grid container alignItems='stretch' spacing={{ xs: 2, md: 3 }}>
+      <Grid container alignItems='stretch' spacing={{ xs: 1, md: 3 }}>
         {cards.map((card) => (
-          <SkillCard key={card.id} image={card.image} imageAltText={card.imageAltText} text={card.text} />
+          <SkillCard
+            key={card.id}
+            image={card.image}
+            imageAltText={card.imageAltText}
+            text={card.text}
+          />
         ))}
       </Grid>
     </Box>
