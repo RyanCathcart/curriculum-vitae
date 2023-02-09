@@ -20,7 +20,7 @@ export default function Footer() {
         paddingBottom: 4,
       }}
     >
-      <Box sx={{ paddingBottom: 4 }}>
+      <Box sx={{ paddingBottom: 2 }}>
         <IconButton
           onClick={() => {
             handleClick('https://github.com/RyanCathcart');

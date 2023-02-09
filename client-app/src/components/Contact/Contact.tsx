@@ -1,9 +1,10 @@
 import { Box, Container, Typography } from '@mui/material';
+import { customTheme } from '../../styles/customTheme';
 import ContactForm from './ContactForm';
 
 export default function Contact() {
   return (
-    <Box className='Contact' component='div' sx={{ pt: 8, pb: 6, backgroundColor: 'primary.main' }}>
+    <Box className='Contact' component='div' sx={{ pt: 8, pb: 6, backgroundColor: customTheme.palette.deepBackground?.main }}>
       <Container maxWidth='lg'>
         <Typography variant='h2' color='white' align='center' sx={{ pb: 1, fontWeight: 'bold' }}>
           CONTACT

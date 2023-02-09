@@ -1,14 +1,14 @@
-import { Box, Button, Container, TextField } from "@mui/material";
-import emailjs from "@emailjs/browser";
-import useForm, { Values } from "../../hooks/useForm";
-import { useState } from "react";
-import SendIcon from "@mui/icons-material/Send";
+import { Box, Button, Container, TextField } from '@mui/material';
+import emailjs from '@emailjs/browser';
+import useForm, { Values } from '../../hooks/useForm';
+import { useState } from 'react';
+import SendIcon from '@mui/icons-material/Send';
 
 export default function ContactForm() {
   const [emailSent, setEmailSent] = useState(false);
-  const serviceID = "service_yqo5rw5";
-  const templateID = "template_loaeo0l";
-  const userID = "dFpCPYdaMXPW8Jcu7";
+  const serviceID = 'service_yqo5rw5';
+  const templateID = 'template_loaeo0l';
+  const userID = 'dFpCPYdaMXPW8Jcu7';
 
   const sendEmail = (e: any) => {
     emailjs.sendForm(serviceID, templateID, e.target, userID).then(
@@ -23,23 +23,28 @@ export default function ContactForm() {
 
   const validate = (fieldValues: Values) => {
     let temp: Values = { ...errors };
-    if ("from_name" in fieldValues) {
-      temp.from_name = fieldValues.from_name ? "" : "This field is required";
+    if ('from_name' in fieldValues) {
+      temp.from_name = fieldValues.from_name ? '' : 'This field is required';
     }
-    if ("sender_email" in fieldValues) {
-      temp.sender_email = /.+@.+..+/.test(fieldValues.sender_email!) ? "" : "Email is not valid";
+    if ('sender_email' in fieldValues) {
+      temp.sender_email = /.+@.+..+/.test(fieldValues.sender_email!)
+        ? ''
+        : 'Email is not valid';
     }
-    if ("message" in fieldValues) {
-      temp.message = fieldValues.message ? "" : "This field is required";
+    if ('message' in fieldValues) {
+      temp.message = fieldValues.message ? '' : 'This field is required';
     }
     setErrors({ ...temp });
 
     if (fieldValues === values) {
-      return Object.values(temp).every((x) => x === "");
+      return Object.values(temp).every((x) => x === '');
     }
   };
 
-  const { values, errors, setErrors, handleInputChange, resetForm } = useForm(true, validate);
+  const { values, errors, setErrors, handleInputChange, resetForm } = useForm(
+    true,
+    validate
+  );
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -51,41 +56,53 @@ export default function ContactForm() {
   };
 
   return (
-    <Container maxWidth="sm" sx={{ display: "flex", flexDirection: "column", alignContent: "center" }}>
+    <Container
+      maxWidth='sm'
+      sx={{ display: 'flex', flexDirection: 'column', alignContent: 'center' }}
+    >
       <Box
-        component="form"
+        component='form'
         onSubmit={handleSubmit}
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignContent: "center",
+          display: 'flex',
+          flexDirection: 'column',
+          alignContent: 'center',
         }}
       >
         <TextField
-          label="Name"
+          label='Name'
           value={values.from_name}
-          name="from_name"
-          margin="normal"
+          name='from_name'
+          color='secondary'
+          margin='normal'
           required
           disabled={emailSent}
           onChange={handleInputChange}
-          {...(errors.from_name && { error: true, helperText: errors.from_name })}
+          {...(errors.from_name && {
+            error: true,
+            helperText: errors.from_name,
+          })}
         />
         <TextField
-          label="Email"
+          label='Email'
           value={values.sender_email}
-          name="sender_email"
-          margin="normal"
+          name='sender_email'
+          color='secondary'
+          margin='normal'
           required
           disabled={emailSent}
           onChange={handleInputChange}
-          {...(errors.sender_email && { error: true, helperText: errors.sender_email })}
+          {...(errors.sender_email && {
+            error: true,
+            helperText: errors.sender_email,
+          })}
         />
         <TextField
-          label="Message"
+          label='Message'
           value={values.message}
-          name="message"
-          margin="normal"
+          name='message'
+          color='secondary'
+          margin='normal'
           required
           disabled={emailSent}
           onChange={handleInputChange}
@@ -93,13 +110,19 @@ export default function ContactForm() {
           multiline={true}
           minRows={4}
         />
-        <Button type="submit" variant="contained" disabled={emailSent} color="secondary" sx={{ my: 2, py: 2 }}>
+        <Button
+          type='submit'
+          variant='contained'
+          disabled={emailSent}
+          color='secondary'
+          sx={{ my: 2, py: 2 }}
+        >
           {emailSent ? (
-            "Email sent"
+            'Email sent'
           ) : (
             <>
               Send email&nbsp;
-              <SendIcon fontSize="small" />
+              <SendIcon fontSize='small' />
             </>
           )}
         </Button>
