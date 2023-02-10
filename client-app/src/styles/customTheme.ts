@@ -18,7 +18,7 @@ export const customTheme = createTheme({
       default: '#0f121a',
     },
     deepBackground: {
-      main: 'hsl(214, 30%, 9%)',
+      main: 'rgb(16, 22, 30)',
     },
   },
   typography: {

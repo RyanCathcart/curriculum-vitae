@@ -12,7 +12,7 @@ import javaIcon from '../../assets/skills/java.png';
 import jfxIcon from '../../assets/skills/javafx.png';
 import pythonIcon from '../../assets/skills/python.png';
 import pgsqlIcon from '../../assets/skills/postgresql.png';
-import { customTheme } from '../../styles/customTheme';
+import { useInView } from 'react-intersection-observer';
 
 const cards = [
   { id: 1, image: cSharpIcon, imageAltText: 'C Sharp', text: 'C#' },
@@ -34,21 +34,36 @@ const cards = [
 ];
 
 export default function Skills() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: '-20% 0px',
+  });
+
   return (
     <Box
       className='Skills'
       sx={{
         pt: 8,
         pb: { xs: 12, md: 32 },
-        backgroundColor: customTheme.palette.background.default,
+        background:
+          'linear-gradient(5deg, rgba(0,38,46,1) -20%, rgba(15,18,26,1) 82%)',
       }}
     >
-      <Container maxWidth='lg'>
+      <Container
+        maxWidth='lg'
+        ref={ref}
+        sx={{
+          opacity: inView ? 1 : 0,
+          translate: inView ? '0px' : '100px',
+          filter: inView ? 'none' : 'blur(3px)',
+          transition: '1s ease-in-out',
+        }}
+      >
         <Typography
           variant='h3'
           color='white'
           align='center'
-          sx={{ pb: 4, fontWeight: 'bold' }}
+          sx={{ pb: 8, fontWeight: 'bold' }}
         >
           SKILLS
         </Typography>

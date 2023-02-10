@@ -5,11 +5,17 @@ import AboutTypography from './AboutTypography';
 import StyledPortrait from './StyledPortrait';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { useInView } from 'react-intersection-observer';
 
 export default function About() {
   const handleClick = (link: string) => {
     link === '/' ? window.location.replace(link) : window.open(link);
   };
+
+  const { ref: ref1, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: '-20% 0px',
+  });
 
   return (
     <Box
@@ -20,19 +26,35 @@ export default function About() {
         backgroundColor: customTheme.palette.deepBackground?.main,
       }}
     >
-      <Container maxWidth='lg'>
+      <Container
+        maxWidth='lg'
+        ref={ref1}
+        sx={{
+          opacity: inView ? 1 : 0,
+          translate: inView ? '0px' : '-5vw',
+          filter: inView ? 'none' : 'blur(3px)',
+          transition: '1s ease-in-out',
+        }}
+      >
         <Typography
           variant='h3'
           color='white'
           align='center'
-          sx={{ pb: 4, fontWeight: 'bold' }}
+          sx={{ pb: 8, fontWeight: 'bold' }}
         >
           ABOUT
         </Typography>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
             <StyledPortrait />
-            <Box sx={{ display: 'flex', justifyContent: 'center', p: 4 }}>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                pt: { xs: 0, md: 2 },
+                pb: 4,
+              }}
+            >
               <IconButton
                 color='secondary'
                 onClick={() => {
@@ -53,8 +75,17 @@ export default function About() {
               </IconButton>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={8}>
-            <Box>
+          <Grid
+            item
+            xs={12}
+            sm={8}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
+            <Box sx={{ mt: { md: '-104px' } }}>
               <AboutTypography color='white'>
                 I'm a 24 year old full-stack web developer based in New Jersey.
                 I'm driven to bring both functional and appealing apps to the
