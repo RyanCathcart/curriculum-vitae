@@ -6,3 +6,22 @@ img {
     max-width: 100%;
     display: block;
 }
+
+::-webkit-scrollbar {
+    background: hsl(224 27% 8% / 1);
+
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(194 58% 30% / 1);
+    border: .2em solid hsl(224 27% 8% / 1);
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(194 58% 30% / 0.6);
+}
+
+::-webkit-scrollbar-corner {
+    background: hsl(224 27% 4% / 1);
+}

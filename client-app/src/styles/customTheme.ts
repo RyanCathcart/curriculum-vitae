@@ -11,14 +11,13 @@ export const customTheme = createTheme({
       main: 'hsl(221, 27%, 14.5%)',
     },
     secondary: {
-      main: 'rgba(0, 179, 214, 1)',
+      main: 'hsl(190, 100%, 42%)',
     },
     background: {
-      paper: 'hsl(221, 27%, 8%)',
       default: '#0f121a',
     },
     deepBackground: {
-      main: 'rgb(16, 22, 30)',
+      main: 'hsl(214, 30%, 9%)',
     },
   },
   typography: {

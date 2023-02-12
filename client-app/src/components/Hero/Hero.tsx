@@ -1,5 +1,5 @@
 import { Box, Button, keyframes } from '@mui/material';
-import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+import ArrowDownwardRoundedIcon from '@mui/icons-material/ArrowDownwardRounded';
 import { customTheme } from '../../styles/customTheme';
 import { Link } from 'react-scroll';
 import P5Canvas from '../Hero/P5Canvas';
@@ -30,17 +30,16 @@ export default function Hero() {
       className='Hero Home'
       height={viewportHeight}
       sx={{
-        position: 'relative',
         width: 'auto',
         display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'center',
-        boxShadow:
-          '0 -10vh 5vh -5vh inset ' + customTheme.palette.deepBackground?.main,
+        alignItems: 'center',
+        textAlign: 'center',
+        boxShadow: `0 -10vh 5vh -5vh ${customTheme.palette.deepBackground?.main} inset `,
       }}
     >
       <P5Canvas />
-      <Box sx={{ pl: '5%', animation: `${fadeIn} 5s` }}>
+      <Box sx={{ animation: `${fadeIn} 5s` }}>
         <HeroTypography color='text.primary'>Hi, I'm&nbsp;</HeroTypography>
         <HeroTypography color='secondary.main'>Ryan Cathcart</HeroTypography>
         <HeroTypography color='text.primary'>
@@ -52,8 +51,8 @@ export default function Hero() {
             variant='outlined'
             size='large'
             color='secondary'
-            endIcon={<ArrowForwardRoundedIcon />}
-            sx={{ mt: 2, py: 1.5 }}
+            endIcon={<ArrowDownwardRoundedIcon />}
+            sx={{ mt: 4, py: 1.5 }}
           >
             View my work&nbsp;
           </Button>

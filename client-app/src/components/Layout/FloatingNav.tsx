@@ -1,10 +1,21 @@
-import { Box, Fab, Menu, MenuItem, Tooltip } from '@mui/material';
+import { Box, Fab, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
+import PersonIcon from '@mui/icons-material/Person';
+import InsightsIcon from '@mui/icons-material/Insights';
+import PermMediaIcon from '@mui/icons-material/PermMedia';
+import EmailIcon from '@mui/icons-material/Email';
 import { useState } from 'react';
 import { Link } from 'react-scroll';
 
 export default function FloatingNav() {
-  const pages = ['Home', 'About', 'Portfolio', 'Contact'];
+  const pages = [
+    { name: 'Home', icon: HomeIcon },
+    { name: 'About', icon: PersonIcon },
+    { name: 'Skills', icon: InsightsIcon },
+    { name: 'Portfolio', icon: PermMediaIcon },
+    { name: 'Contact', icon: EmailIcon },
+  ];
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -65,8 +76,13 @@ export default function FloatingNav() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         {pages.map((page) => (
-          <Link key={page} to={page} smooth={true}>
-            <MenuItem sx={{ p: 1.5 }}>{page}</MenuItem>
+          <Link key={page.name} to={page.name} smooth={true}>
+            <MenuItem sx={{ p: 1.5 }}>
+              <ListItemIcon>
+                <page.icon />
+              </ListItemIcon>
+              {page.name}
+            </MenuItem>
           </Link>
         ))}
       </Menu>

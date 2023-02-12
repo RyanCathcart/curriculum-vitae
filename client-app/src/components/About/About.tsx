@@ -37,10 +37,10 @@ export default function About() {
         }}
       >
         <Typography
-          variant='h3'
+          variant='h2'
           color='white'
           align='center'
-          sx={{ pb: 8, fontWeight: 'bold' }}
+          sx={{ pb: { xs: 2, md: 8 }, fontWeight: 'bold' }}
         >
           ABOUT
         </Typography>
@@ -97,7 +97,7 @@ export default function About() {
                 software developer. By familiarizing myself with multiple
                 programming languages and frameworks, I've been able to design
                 and create solutions to problems in both native desktop and web
-                environments. These days my time is spent researching,
+                environments. These days, my time is spent researching,
                 designing, prototyping, and coding. In my free time, you'll find
                 me travelling, playing guitar, and enjoying my favorite video
                 games.

@@ -12,7 +12,7 @@ export default function HeroTypography(props: HeroTypographyProps) {
     <Typography
       variant='h1'
       display='inline'
-      align='left'
+      align='center'
       color={color}
       noWrap={true}
       sx={{
