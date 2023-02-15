@@ -12,7 +12,7 @@ export default function AboutTypography(props: BioTypographyProps) {
     <Typography
       variant='body1'
       color={color}
-      align='center'
+      align='left'
       sx={{
         fontSize: {
           xs: '1rem',

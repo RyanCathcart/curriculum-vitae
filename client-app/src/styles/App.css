@@ -7,44 +7,21 @@ img {
     display: block;
 }
 
-.styled-portrait {
-    --transform-speed: 250ms;
-    position: relative;
-    max-width: 30rem;
-    margin-inline: auto;
+::-webkit-scrollbar {
+    background: hsl(224 27% 8% / 1);
+
 }
 
-.portrait-container {
-    aspect-ratio: 1 / 1;
-    display: grid;
-    align-items: end;
-    border-radius: 0 0 100vw 100vw;
-    overflow: hidden;
-    transition: transform var(--transform-speed) ease;
+::-webkit-scrollbar-thumb {
+    background: hsl(194 58% 30% / 1);
+    border: .2em solid hsl(224 27% 8% / 1);
+    border-radius: 100vw;
 }
 
-.portrait-container:hover {
-    transform: scale(1.1);
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(194 58% 30% / 0.6);
 }
 
-.portrait-bg {
-    position: absolute;
-    inset: auto 0 0;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    margin-inline: auto;
-    object-fit: cover;
-}
-
-.portrait-img {
-    position: relative;
-    left: 1rem;
-    max-width: 60%;
-    transform:scale(1.2);
-    transition: transform calc(var(--transform-speed) * 1.2) ease;
-}
-
-.portrait-container:hover .portrait-img {
-    transform: scale(1.2) translateY(-1rem);
+::-webkit-scrollbar-corner {
+    background: hsl(224 27% 4% / 1);
 }

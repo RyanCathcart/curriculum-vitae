@@ -63,8 +63,6 @@ function sketch(p5: P5CanvasInstance) {
 
   p5.windowResized = () => {
     p5.resizeCanvas(document.body.clientWidth, window.innerHeight);
-    w = document.body.clientWidth;
-    h = window.innerHeight;
     p5.setup();
   };
 }
