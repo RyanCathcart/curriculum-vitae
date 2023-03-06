@@ -6,7 +6,7 @@ import StyledPortrait from './StyledPortrait';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useInView } from 'react-intersection-observer';
-import { handleClick } from '../../utils/handleClick';
+import { handleClick } from '../../util/handleClick';
 
 export default function About() {
   const { ref, inView } = useInView({
@@ -14,7 +14,7 @@ export default function About() {
     rootMargin: '-20% 0px',
   });
 
-  const intersectionObserverAnimation = {
+  const fadeInTransition = {
     opacity: inView ? 1 : 0,
     translate: inView ? '0px' : '-5vw',
     filter: inView ? 'none' : 'blur(3px)',
@@ -30,17 +30,24 @@ export default function About() {
         backgroundColor: customTheme.palette.deepBackground?.main,
       }}
     >
-      <Container maxWidth='lg' >
+      <Container ref={ref} maxWidth='lg'>
         <Typography
-        ref={ref}
           variant='h2'
           color='white'
           align='center'
-          sx={{...intersectionObserverAnimation, pb: { xs: 2, md: 8 }, fontWeight: 'bold' }}
+          sx={{
+            ...fadeInTransition,
+            pb: { xs: 2, md: 8 },
+            fontWeight: 'bold',
+          }}
         >
           ABOUT
         </Typography>
-        <Grid container spacing={2}>
+        <Grid
+          container
+          spacing={2}
+          sx={{ ...fadeInTransition, transitionDelay: '200ms' }}
+        >
           <Grid item xs={12} sm={4}>
             <StyledPortrait />
             <Box

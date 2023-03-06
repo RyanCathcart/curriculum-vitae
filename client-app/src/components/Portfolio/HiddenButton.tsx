@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import { ReactNode } from 'react';
-import { handleClick } from '../../utils/handleClick';
+import { handleClick } from '../../util/handleClick';
 
 interface HiddenButtonProps {
   children?: string;

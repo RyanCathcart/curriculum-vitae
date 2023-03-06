@@ -30,7 +30,7 @@ const cards = [
 
 export default function Skills() {
   const { ref, inView } = useInView({
-    triggerOnce: false,
+    triggerOnce: true,
     rootMargin: '-20% 0px',
   });
 
