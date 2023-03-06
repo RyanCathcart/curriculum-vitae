@@ -6,16 +6,20 @@ import StyledPortrait from './StyledPortrait';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useInView } from 'react-intersection-observer';
+import { handleClick } from '../../utils/handleClick';
 
 export default function About() {
-  const handleClick = (link: string) => {
-    link === '/' ? window.location.replace(link) : window.open(link);
-  };
-
-  const { ref: ref1, inView } = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: true,
     rootMargin: '-20% 0px',
   });
+
+  const intersectionObserverAnimation = {
+    opacity: inView ? 1 : 0,
+    translate: inView ? '0px' : '-5vw',
+    filter: inView ? 'none' : 'blur(3px)',
+    transition: '1s ease-in-out',
+  };
 
   return (
     <Box
@@ -26,21 +30,13 @@ export default function About() {
         backgroundColor: customTheme.palette.deepBackground?.main,
       }}
     >
-      <Container
-        maxWidth='lg'
-        ref={ref1}
-        sx={{
-          opacity: inView ? 1 : 0,
-          translate: inView ? '0px' : '-5vw',
-          filter: inView ? 'none' : 'blur(3px)',
-          transition: '1s ease-in-out',
-        }}
-      >
+      <Container maxWidth='lg' >
         <Typography
+        ref={ref}
           variant='h2'
           color='white'
           align='center'
-          sx={{ pb: { xs: 2, md: 8 }, fontWeight: 'bold' }}
+          sx={{...intersectionObserverAnimation, pb: { xs: 2, md: 8 }, fontWeight: 'bold' }}
         >
           ABOUT
         </Typography>

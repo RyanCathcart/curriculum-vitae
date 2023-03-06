@@ -15,13 +15,6 @@ export default function HeroTypography(props: HeroTypographyProps) {
       align='center'
       color={color}
       noWrap={true}
-      sx={{
-        fontSize: {
-          xs: '1.4rem',
-          sm: '2rem',
-          md: '3.75rem',
-        },
-      }}
     >
       {children}
     </Typography>

@@ -1,5 +1,6 @@
-import { Button } from "@mui/material";
-import { ReactNode } from "react";
+import { Button } from '@mui/material';
+import { ReactNode } from 'react';
+import { handleClick } from '../../utils/handleClick';
 
 interface HiddenButtonProps {
   children?: string;
@@ -11,26 +12,24 @@ interface HiddenButtonProps {
 export default function HiddenButton(props: HiddenButtonProps) {
   const { children, icon, link, transition } = props;
 
-  const handleClick = () => {
-    link === "/" ? window.location.replace(link) : window.open(link);
-  }
-
   return (
     <Button
-      className="hidden-button"
-      variant="outlined"
-      color="primary"
+      className='hidden-button'
+      variant='outlined'
+      color='primary'
       startIcon={icon}
-      onClick={handleClick}
+      onClick={() => {
+        handleClick(link);
+      }}
       sx={{
-        visibility: "collapse",
-        pointerEvents: "none",
-        touchAction: "none",
-        minWidth: "10em",
+        visibility: 'collapse',
+        pointerEvents: 'none',
+        touchAction: 'none',
+        minWidth: '10em',
         borderRadius: 1,
         margin: 1,
-        backgroundColor: "hsla(0, 0%, 95%, 90%)",
-        filter: "opacity(0%)",
+        backgroundColor: 'hsla(0, 0%, 95%, 90%)',
+        filter: 'opacity(0%)',
         transition: transition,
       }}
     >

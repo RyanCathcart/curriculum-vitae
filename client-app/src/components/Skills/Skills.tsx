@@ -30,7 +30,7 @@ const cards = [
 
 export default function Skills() {
   const { ref, inView } = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     rootMargin: '-20% 0px',
   });
 
@@ -38,7 +38,7 @@ export default function Skills() {
     <Box
       className='Skills'
       sx={{
-        pt: { xs: 12, md: 16 },
+        pt: 8,
         pb: { xs: 20, md: 32 },
         background:
           'linear-gradient(5deg, hsl(194, 70%, 12%) -80%, rgba(15, 18, 26, 1) 80%)',
