@@ -76,8 +76,8 @@ export default function FloatingNav() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         {pages.map((page) => (
-          <Link key={page.name} to={page.name} smooth={true}>
-            <MenuItem sx={{ p: 1.5 }}>
+          <Link key={page.name} to={page.name} smooth={true} onClick={handleClose}>
+            <MenuItem sx={{ p: 1.5 } }>
               <ListItemIcon>
                 <page.icon />
               </ListItemIcon>

@@ -2,12 +2,9 @@ import { Box, IconButton, Typography } from '@mui/material';
 import { customTheme } from '../../styles/customTheme';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { handleClick } from '../../util/handleClick';
 
 export default function Footer() {
-  const handleClick = (link: string) => {
-    link === '/' ? window.location.replace(link) : window.open(link);
-  };
-
   return (
     <Box
       sx={{
@@ -37,15 +34,15 @@ export default function Footer() {
         </IconButton>
       </Box>
       <Box sx={{ display: 'flex' }}>
-        <Typography variant='body1' color='hsl(0, 0%, 50%)' align='center'>
+        <Typography variant='body2' color='hsl(0, 0%, 50%)' align='center'>
           RYAN CATHCART&nbsp;
         </Typography>
         <Typography
-          variant='body1'
+          variant='body2'
           color={customTheme.palette.secondary.main}
           align='center'
         >
-          ©2022
+          ©{new Date().getFullYear()}
         </Typography>
       </Box>
     </Box>

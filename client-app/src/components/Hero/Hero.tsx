@@ -30,6 +30,7 @@ export default function Hero() {
       className='Hero Home'
       height={viewportHeight}
       sx={{
+        position: 'relative',
         width: 'auto',
         display: 'flex',
         justifyContent: 'center',
@@ -40,9 +41,9 @@ export default function Hero() {
     >
       <P5Canvas />
       <Box sx={{ animation: `${fadeIn} 5s` }}>
-        <HeroTypography color='text.primary'>Hi, I'm&nbsp;</HeroTypography>
+        <HeroTypography color='white'>Hi, I'm&nbsp;</HeroTypography>
         <HeroTypography color='secondary.main'>Ryan Cathcart</HeroTypography>
-        <HeroTypography color='text.primary'>
+        <HeroTypography color='white'>
           ,<br />a full-stack web developer.
           <br />
         </HeroTypography>

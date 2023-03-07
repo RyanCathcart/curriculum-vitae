@@ -6,16 +6,20 @@ import StyledPortrait from './StyledPortrait';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useInView } from 'react-intersection-observer';
+import { handleClick } from '../../util/handleClick';
 
 export default function About() {
-  const handleClick = (link: string) => {
-    link === '/' ? window.location.replace(link) : window.open(link);
-  };
-
-  const { ref: ref1, inView } = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: true,
     rootMargin: '-20% 0px',
   });
+
+  const fadeInTransition = {
+    opacity: inView ? 1 : 0,
+    translate: inView ? '0px' : '-5vw',
+    filter: inView ? 'none' : 'blur(3px)',
+    transition: '1s ease-in-out',
+  };
 
   return (
     <Box
@@ -26,25 +30,24 @@ export default function About() {
         backgroundColor: customTheme.palette.deepBackground?.main,
       }}
     >
-      <Container
-        maxWidth='lg'
-        ref={ref1}
-        sx={{
-          opacity: inView ? 1 : 0,
-          translate: inView ? '0px' : '-5vw',
-          filter: inView ? 'none' : 'blur(3px)',
-          transition: '1s ease-in-out',
-        }}
-      >
+      <Container ref={ref} maxWidth='lg'>
         <Typography
           variant='h2'
           color='white'
           align='center'
-          sx={{ pb: { xs: 2, md: 8 }, fontWeight: 'bold' }}
+          sx={{
+            ...fadeInTransition,
+            pb: { xs: 2, md: 8 },
+            fontWeight: 'bold',
+          }}
         >
           ABOUT
         </Typography>
-        <Grid container spacing={2}>
+        <Grid
+          container
+          spacing={2}
+          sx={{ ...fadeInTransition, transitionDelay: '200ms' }}
+        >
           <Grid item xs={12} sm={4}>
             <StyledPortrait />
             <Box
