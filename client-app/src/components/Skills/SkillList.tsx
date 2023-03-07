@@ -22,7 +22,12 @@ export default function SkillList(props: SkillListProps) {
         boxShadow: `0 0 15px 0 ${customTheme.palette.secondary.main}`,
       }}
     >
-      <Typography variant='h3' color='secondary' align='center' paddingBottom={3}>
+      <Typography
+        variant='h3'
+        color='secondary'
+        align='center'
+        paddingBottom={3}
+      >
         {title}
       </Typography>
       <Grid container>
