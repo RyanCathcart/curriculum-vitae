@@ -9,7 +9,7 @@ export default function Contact() {
       component='div'
       sx={{
         pt: 8,
-        pb: 6,
+        pb: 16,
         backgroundColor: customTheme.palette.deepBackground?.main,
       }}
     >
