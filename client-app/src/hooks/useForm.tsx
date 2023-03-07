@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export interface Values {
   from_name?: any;
@@ -8,9 +8,9 @@ export interface Values {
 
 export default function useForm(validateOnChange = false, validate: any) {
   const [values, setValues] = useState<Values>({
-    from_name: "",
-    sender_email: "",
-    message: "",
+    from_name: '',
+    sender_email: '',
+    message: '',
   });
 
   const [errors, setErrors] = useState<Values>({});
@@ -28,9 +28,9 @@ export default function useForm(validateOnChange = false, validate: any) {
 
   const resetForm = () => {
     setValues({
-      from_name: "",
-      sender_email: "",
-      message: "",
+      from_name: '',
+      sender_email: '',
+      message: '',
     });
   };
 
