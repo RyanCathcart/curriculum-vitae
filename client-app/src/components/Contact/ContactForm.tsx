@@ -10,8 +10,8 @@ export default function ContactForm() {
   const templateID = 'template_loaeo0l';
   const userID = 'dFpCPYdaMXPW8Jcu7';
 
-  const sendEmail = (e: any) => {
-    emailjs.sendForm(serviceID, templateID, e.target, userID).then(
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    emailjs.sendForm(serviceID, templateID, e.currentTarget, userID).then(
       (result) => {
         console.log(result.text);
       },
@@ -22,7 +22,7 @@ export default function ContactForm() {
   };
 
   const validate = (fieldValues: Values) => {
-    let temp: Values = { ...errors };
+    const temp: Values = { ...errors };
     if ('from_name' in fieldValues) {
       temp.from_name = fieldValues.from_name ? '' : 'This field is required';
     }
@@ -46,7 +46,7 @@ export default function ContactForm() {
     validate
   );
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validate(values)) {
       setEmailSent(true);

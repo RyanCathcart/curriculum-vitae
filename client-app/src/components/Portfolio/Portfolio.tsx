@@ -21,8 +21,8 @@ const cards = [
     image: eCommerceStoreThumb,
     imageAltText: 'E-Commerce Store',
     description:
-      'A mock E-store application made with React and .NET 6 that allows users to log-in, browse (fake) products, and make payments using Stripe payment infrastructure.',
-    demoLink: 'https://rwc-react-ecommerce.herokuapp.com/',
+      'A mock E-store application made with React and .NET 7 that allows users to log-in, browse (fake) products, and make payments using Stripe payment infrastructure.',
+    demoLink: 'https://rwc-react-estore.up.railway.app/',
     repoLink: 'https://github.com/RyanCathcart/react-ecommerce-store',
   },
   {

@@ -6,7 +6,7 @@ function sketch(p5: P5CanvasInstance) {
   let cols: number, rows: number;
   let w: number, h: number;
 
-  let terrain: number[][] = [];
+  const terrain: number[][] = [];
   let flying = 0;
 
   const BACKGROUND_COLOR = customTheme.palette.background.default;
@@ -38,7 +38,13 @@ function sketch(p5: P5CanvasInstance) {
     for (let y = 0; y < rows; y++) {
       let xOff = 0;
       for (let x = 0; x < cols; x++) {
-        terrain[x][y] = p5.map(p5.noise(xOff, yOff), 0, 1, -TERRAIN_AMPLITUDE, TERRAIN_AMPLITUDE);
+        terrain[x][y] = p5.map(
+          p5.noise(xOff, yOff),
+          0,
+          1,
+          -TERRAIN_AMPLITUDE,
+          TERRAIN_AMPLITUDE
+        );
         xOff += PERLIN_NOISE_OFFSET;
       }
       yOff += PERLIN_NOISE_OFFSET;

@@ -13,7 +13,14 @@ import jfxIcon from '../../assets/skills/javafx.png';
 import pythonIcon from '../../assets/skills/python.png';
 import pgsqlIcon from '../../assets/skills/postgresql.png';
 
-export const frontendSkills = [
+export type Skill = {
+  image: string;
+  imageAltText: string;
+  text: string;
+  yearLearned: number;
+};
+
+export const frontendSkills: Skill[] = [
   {
     image: jsIcon,
     imageAltText: 'JavaScript',
@@ -42,7 +49,7 @@ export const frontendSkills = [
   { image: jfxIcon, imageAltText: 'JavaFX', text: 'JavaFX', yearLearned: 2016 },
 ];
 
-export const backendSkills = [
+export const backendSkills: Skill[] = [
   { image: cSharpIcon, imageAltText: 'C Sharp', text: 'C#', yearLearned: 2020 },
   {
     image: dotNetIcon,
@@ -59,7 +66,7 @@ export const backendSkills = [
   { image: javaIcon, imageAltText: 'Java', text: 'Java', yearLearned: 2015 },
 ];
 
-export const otherSkills = [
+export const otherSkills: Skill[] = [
   {
     image: htmlIcon,
     imageAltText: 'HTML',

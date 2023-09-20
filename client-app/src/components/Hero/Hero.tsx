@@ -1,9 +1,8 @@
-import { Box, Button, keyframes } from '@mui/material';
+import { Box, Button, Typography, keyframes } from '@mui/material';
 import ArrowDownwardRoundedIcon from '@mui/icons-material/ArrowDownwardRounded';
 import { customTheme } from '../../styles/customTheme';
 import { Link } from 'react-scroll';
 import P5Canvas from '../Hero/P5Canvas';
-import HeroTypography from './HeroTypography';
 import { useEffect, useState } from 'react';
 
 export default function Hero() {
@@ -41,12 +40,26 @@ export default function Hero() {
     >
       <P5Canvas />
       <Box sx={{ animation: `${fadeIn} 5s` }}>
-        <HeroTypography color='white'>Hi, I'm&nbsp;</HeroTypography>
-        <HeroTypography color='secondary.main'>Ryan Cathcart</HeroTypography>
-        <HeroTypography color='white'>
-          ,<br />a full-stack web developer.
-          <br />
-        </HeroTypography>
+        <Box>
+          <Typography
+            color='white'
+            variant='h1'
+            display='inline-block'
+            align='center'
+          >
+            Hi, I'm&nbsp;
+            <Typography
+              color='secondary.main'
+              variant='h1'
+              display='inline'
+              align='center'
+            >
+              Ryan Cathcart
+            </Typography>
+            ,<br />a full-stack web developer.
+          </Typography>
+        </Box>
+
         <Link to='About' smooth={true}>
           <Button
             variant='outlined'
