@@ -1,12 +1,12 @@
 import { Box } from '@mui/material';
-import { P5CanvasInstance, ReactP5Wrapper } from 'react-p5-wrapper';
+import { P5CanvasInstance, ReactP5Wrapper } from '@p5-wrapper/react';
 import { customTheme } from '../../styles/customTheme';
 
 function sketch(p5: P5CanvasInstance) {
   let cols: number, rows: number;
   let w: number, h: number;
 
-  let terrain: number[][] = [];
+  const terrain: number[][] = [];
   let flying = 0;
 
   const BACKGROUND_COLOR = customTheme.palette.background.default;

@@ -1,10 +1,11 @@
 import { Box, Typography, Grid } from '@mui/material';
 import { customTheme } from '../../styles/customTheme';
 import SkillItem from './SkillItem';
+import { Skill } from './skillData';
 
 interface SkillListProps {
   title: string;
-  content: any[];
+  content: Skill[];
 }
 
 export default function SkillList(props: SkillListProps) {

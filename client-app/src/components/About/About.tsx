@@ -90,7 +90,7 @@ export default function About() {
           >
             <Box sx={{ mt: { md: '-104px' } }}>
               <AboutTypography color='white'>
-                I'm a 24 year old full-stack web developer based in New Jersey.
+                I'm a 25 year old full-stack web developer based in New Jersey.
                 I'm driven to bring both functional and appealing apps to the
                 web. If you would like to contact me, check out the form below!
               </AboutTypography>

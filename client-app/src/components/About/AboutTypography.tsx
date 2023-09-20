@@ -1,11 +1,11 @@
 import { Typography } from '@mui/material';
 
-interface BioTypographyProps {
-  children?: any;
+interface AboutTypographyProps {
+  children?: string;
   color?: string;
 }
 
-export default function AboutTypography(props: BioTypographyProps) {
+export default function AboutTypography(props: AboutTypographyProps) {
   const { children, color } = props;
 
   return (
